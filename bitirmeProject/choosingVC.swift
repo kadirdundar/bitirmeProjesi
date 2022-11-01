@@ -24,7 +24,7 @@ class choosingVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate
         
         
         let gestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(ChooseLocation(gestureRecognizer:)))
-        gestureRecognizer.minimumPressDuration = 3
+        gestureRecognizer.minimumPressDuration = 2
         mapView.addGestureRecognizer(gestureRecognizer)
     }
     
@@ -37,10 +37,30 @@ class choosingVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate
             annotation.coordinate = touchCoordinate
             annotation.title = "seçitiğiniz bölge"
             annotation.subtitle = "örnek"
+            
             mapView.addAnnotation(annotation)
         }
     }
+//annotation artı butonu ekledik.
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if !(annotation is MKUserLocation) {
+               let pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: String(annotation.hash))
 
+               let rightButton = UIButton(type: .contactAdd)
+               rightButton.tag = annotation.hash
+
+               pinView.animatesDrop = true
+               pinView.canShowCallout = true
+               pinView.rightCalloutAccessoryView = rightButton
+               
+
+               return pinView
+           }
+           else {
+               return nil
+           }
+    }
+    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
         let location = CLLocationCoordinate2D(latitude: locations[0].coordinate.latitude, longitude: locations[0].coordinate.longitude)
@@ -49,5 +69,7 @@ class choosingVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate
         mapView.setRegion(region, animated: true)
         
     }
-
+    
 }
+
+
