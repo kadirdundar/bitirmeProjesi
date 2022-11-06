@@ -43,23 +43,40 @@ class choosingVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate
     }
 //annotation artı butonu ekledik.
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        if !(annotation is MKUserLocation) {
-               let pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: String(annotation.hash))
+        if annotation is MKUserLocation {
+            return nil}
+            
+            let reuseID = "IDforReuse"
+            var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseID)
+        
+        if pinView == nil {
+            pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseID)
+            
+            pinView?.canShowCallout = true
+            
+            let rightButton = UIButton(type: .contactAdd)
+            
+            pinView?.rightCalloutAccessoryView = rightButton
+            
 
-               let rightButton = UIButton(type: .contactAdd)
-               rightButton.tag = annotation.hash
-
-               pinView.animatesDrop = true
-               pinView.canShowCallout = true
-               pinView.rightCalloutAccessoryView = rightButton
-               
-
-               return pinView
+            pinView?.isSelected = true
+            
+            }
+        else
+            {
+            pinView?.annotation = annotation
+            }
+                
+                return pinView
+                
            }
-           else {
-               return nil
-           }
+
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        print("tüklandii")
+        //firebase e gönbderilecek information
     }
+    
+    
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
