@@ -8,6 +8,8 @@
 import UIKit
 import MapKit
 import CoreLocation
+import FirebaseFirestore
+
 class choosingVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate{
 
     var locationManager = CLLocationManager()
@@ -71,10 +73,15 @@ class choosingVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate
                 
            }
 
+    
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+       
+        
+        
         print("tüklandii")
-        //firebase e gönbderilecek information
+        // bütün veriler çekilecek k-means ile hesapkayığ gönderilecek
     }
+    
     
     
     
