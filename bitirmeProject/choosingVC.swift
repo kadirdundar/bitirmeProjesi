@@ -13,6 +13,9 @@ import FirebaseFirestore
 class choosingVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate{
 
     var locationManager = CLLocationManager()
+    var locationData = [GeoPoint]()
+    var yenikonum = [GeoPoint]()
+    
     
     @IBOutlet weak var mapView: MKMapView!
     override func viewDidLoad() {
@@ -23,6 +26,8 @@ class choosingVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate
         locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
+        
+        verileriAl()
         
         
         let gestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(ChooseLocation(gestureRecognizer:)))
@@ -39,6 +44,7 @@ class choosingVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate
             annotation.coordinate = touchCoordinate
             annotation.title = "seçitiğiniz bölge"
             annotation.subtitle = "örnek"
+            
             
             mapView.addAnnotation(annotation)
         }
@@ -76,9 +82,8 @@ class choosingVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
        
-        
-        
         print("tüklandii")
+        
         // bütün veriler çekilecek k-means ile hesapkayığ gönderilecek
     }
     
@@ -93,6 +98,30 @@ class choosingVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate
         mapView.setRegion(region, animated: true)
         
     }
+    
+    func verileriAl(){
+        let firestoreDatabase = Firestore.firestore()
+        firestoreDatabase.collection("information").addSnapshotListener { (snapshot, error) in
+            if error != nil{
+                print(error?.localizedDescription)
+            }
+            else {
+                if snapshot?.isEmpty != true && snapshot != nil {
+                    for document in snapshot!.documents{
+                        if let konum = document.get("location") as? GeoPoint{
+                            self.locationData.append(konum)
+                            
+                            print(self.locationData)
+                            
+                        }
+                    }
+                }
+                
+            }
+        }
+            
+    }
+    
     
 }
 
