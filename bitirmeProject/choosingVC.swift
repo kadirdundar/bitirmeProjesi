@@ -114,14 +114,16 @@ class choosingVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate
             }
             else {
                 if snapshot?.isEmpty != true && snapshot != nil {
+                    var locationData: [[Double]] = []
                     for document in snapshot!.documents{
                         if let konum = document.get("location") as? GeoPoint{
                             self.locationData.append(konum)
+                            locationData.append([konum.latitude, konum.longitude])
                             
-                            print(self.locationData)
                             
                         }
                     }
+                    print(locationData)
                 }
                 
             }
