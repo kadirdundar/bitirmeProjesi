@@ -8,13 +8,11 @@
 import UIKit
 import MapKit
 import CoreLocation
-import FirebaseFirestore
 
 class choosingVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate{
 
     var locationManager = CLLocationManager()
-    var locationData = [GeoPoint]()
-    var yenikonum = [GeoPoint]()
+
     
     
     @IBOutlet weak var mapView: MKMapView!
@@ -27,7 +25,7 @@ class choosingVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
         
-        verileriAl()
+     
         
         
         let gestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(ChooseLocation(gestureRecognizer:)))
@@ -106,30 +104,7 @@ class choosingVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate
         
     }
     
-    func verileriAl(){
-        let firestoreDatabase = Firestore.firestore()
-        firestoreDatabase.collection("information").addSnapshotListener { (snapshot, error) in
-            if error != nil{
-                print(error?.localizedDescription)
-            }
-            else {
-                if snapshot?.isEmpty != true && snapshot != nil {
-                    var locationData: [[Double]] = []
-                    for document in snapshot!.documents{
-                        if let konum = document.get("location") as? GeoPoint{
-                            self.locationData.append(konum)
-                            locationData.append([konum.latitude, konum.longitude])
-                            
-                            
-                        }
-                    }
-                    print(locationData)
-                }
-                
-            }
-        }
-            
-    }
+   
     
     
 }
