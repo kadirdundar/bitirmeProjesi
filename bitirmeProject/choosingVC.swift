@@ -81,6 +81,7 @@ class choosingVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
        
         print("tüklandii")
+        
         //let data = [[2.0,0.0]]
         //let scaledata = ScaleData(data: data)
         //let scaleddata = scaledata.scaleData(data: data)

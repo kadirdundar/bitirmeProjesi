@@ -8,12 +8,13 @@
 import UIKit
 import FirebaseFirestore
 
+
 class settingVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        islev()
+        //islev()
         
     }
   
@@ -47,7 +48,7 @@ class settingVC: UIViewController {
         
         if randomEmails.count == 100 && coordinates.count == 100{
             for i in 0..<100{
-                let firestorePost = ["arac" :"2", "location" : coordinates[i] ,"email" : randomEmails[i]] as [String : Any]
+                let firestorePost = ["arac" :2, "location" : coordinates[i] ,"email" : randomEmails[i]] as [String : Any]
                 firestoreDatabase.collection("information").addDocument(data: firestorePost) {
                     (error) in
                     if error != nil{
@@ -62,6 +63,16 @@ class settingVC: UIViewController {
             
         }
      }
+  /*  func deneme(){
+        let coordinates: [GeoPoint] = (0..<100).map { _ in
+               let latitude = Double.random(in: 41.0...42.0)
+               let longitude = Double.random(in: 28.0...29.0)
+               return GeoPoint(latitude: latitude, longitude: longitude)
+           }
+        
+        
+        
+    }*/
     }
      
     
