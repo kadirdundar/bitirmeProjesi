@@ -61,11 +61,13 @@ class savedVC: UIViewController {
     
     func verileriIsle(){
         let scaledata = ScaleData(data: yenikonum).scaleData(data: yenikonum)
-        let k = 2
-        let clusterer = KMeansClusterer(data: scaledata, k: k, maxElementCount: 20, iterations: 100)
+        let k = 5
+        let clusterer = KMeansClusterer(data: scaledata, k: k, maxElementCount: 20, iterations: 350)
         let clusters = clusterer.cluster()
         print(clusters)
     }
+    
+    
     
 
 
