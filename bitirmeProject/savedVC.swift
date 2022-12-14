@@ -68,7 +68,7 @@ class savedVC: UIViewController {
     }
     
     
-    
+    //fonksiyon yazılacak konumu eşleşen verideki arac değişkeninin değerini değiştirecek
 
 
 }
