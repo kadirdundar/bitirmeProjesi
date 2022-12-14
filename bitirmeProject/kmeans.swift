@@ -30,8 +30,8 @@ struct KMeansClusterer{
         // Bu işlem, küme merkezlerinin belirlenmesi ve verilerin kümelere
         // göre dağıtılmasını içerir.
         while true {
-            let clusterCentroids = computeClusterCentroids(clusters: clusters)
-            let updatedClusters = assignDataToClusters(clusters: clusters, centroids: clusterCentroids)
+            let clusterCentroids = computeClusterCentroids(clusters: clusters)//küme merkezlerini hesapla
+            let updatedClusters = assignDataToClusters(clusters: clusters, centroids: clusterCentroids)//herbir datayı en yakın küme merkezinin olduğu kümeye atıyor
             
             // Eğer küme merkezleri ve verilerin dağılımı değişmemişse,
             // döngüyü sonlandırıyoruz.
