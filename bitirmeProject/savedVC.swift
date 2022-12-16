@@ -50,7 +50,7 @@ class savedVC: UIViewController {
                     }
                     
                     print(yenikonum[0])//basarılı
-                    //verileriIsle()
+                    verileriIsle()
                 }
                 
             }
@@ -74,18 +74,19 @@ class savedVC: UIViewController {
              var aracnumarası  = 1
          aracnumarası = aracnumarası + 1
          for a in i{
-         let longitude = a[0] // enlem değeri
-         let latitude = a[1] // boylam değeri
+         let longitude = a[1] // enlem değeri
+         let latitude = a[0] // boylam değeri
          let location = [GeoPoint(latitude: latitude, longitude: longitude)]
-             //print(location) [<FIRGeoPoint: (28.690790, 41.180382)>] geliyor
-         firestoreDatabase.collection("information").whereField("location", isEqualTo: location).getDocuments { [self] (snapshot, error) in
+         let geoPoint = location[0]
+             //print(location) //[<FIRGeoPoint: (28.690790, 41.180382)>] geliyor [<FIRGeoPoint: (41.088044, 28.263499)>]
+         firestoreDatabase.collection("information").whereField("location", isEqualTo: geoPoint).getDocuments { [self] (snapshot, error) in
          if let error = error{
          return
          }
          else {
          for document in snapshot!.documents{
          document.reference.updateData(["arac": aracnumarası])
-             print("buraya girdi")
+             print(aracnumarası)//arac numarası 2 yazıyor sürekli
          }
          }
          
