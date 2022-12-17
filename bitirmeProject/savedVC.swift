@@ -63,40 +63,44 @@ class savedVC: UIViewController {
         let k = 5
         let clusterer = KMeansClusterer(data: scaledata, k: k, maxElementCount: 20, iterations: 350)
         let clusters = clusterer.cluster()
-        print(clusters)
+        
         let unscaleData = UnscaledData(clusters: clusters, data: yenikonum).unscaleData(clusters: clusters, data: yenikonum)
       
-        print(unscaleData)
-        
-        
-         let firestoreDatabase = Firestore.firestore()
-         for i in unscaleData{
-             var aracnumarası  = 1
-         aracnumarası = aracnumarası + 1
-         for a in i{
-         let longitude = a[1] // enlem değeri
-         let latitude = a[0] // boylam değeri
-         let location = [GeoPoint(latitude: latitude, longitude: longitude)]
-         let geoPoint = location[0]
-             //print(location) //[<FIRGeoPoint: (28.690790, 41.180382)>] geliyor [<FIRGeoPoint: (41.088044, 28.263499)>]
-         firestoreDatabase.collection("information").whereField("location", isEqualTo: geoPoint).getDocuments { [self] (snapshot, error) in
-         if let error = error{
-         return
-         }
-         else {
-         for document in snapshot!.documents{
-         document.reference.updateData(["arac": aracnumarası])
-             print(aracnumarası)//arac numarası 2 yazıyor sürekli
-         }
-         }
-         
-         }
-         
-         
-         
-         }
-         
-         }
+        //print(unscaleData)
+        func updateFirestore(aracnumarasi: Int, longitude: Double, latitude: Double, completion: @escaping (Error?) -> Void) {
+          let firestoreDatabase = Firestore.firestore()
+          let location = [GeoPoint(latitude: latitude, longitude: longitude)]
+          let geoPoint = location[0]
+          firestoreDatabase.collection("information").whereField("location", isEqualTo: geoPoint).getDocuments { [self] (snapshot, error) in
+            if let error = error {
+              completion(error)
+              return
+            } else {
+              for document in snapshot!.documents {
+                document.reference.updateData(["arac": aracnumarasi])
+              }
+            }
+            completion(nil)
+          }
+        }
+
+        var aracnumarasi = 1
+        for i in unscaleData {
+          for a in i {
+            let longitude = a[1]
+            let latitude = a[0]
+            updateFirestore(aracnumarasi: aracnumarasi, longitude: longitude, latitude: latitude) { error in
+              if let error = error {
+                // Handle the error here
+              }
+            }
+          }
+          aracnumarasi = aracnumarasi + 1
+        }
+
+
+
+
            
            
            }
@@ -104,7 +108,7 @@ class savedVC: UIViewController {
            
            
            
-           
+
     }
     
     
