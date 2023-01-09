@@ -15,7 +15,7 @@ class savedVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        verileriAl()
+        //verileriAl()
         //verileriIsle()
         // Do any additional setup after loading the view.
     }
