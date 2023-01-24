@@ -12,6 +12,7 @@ class savedVC: UIViewController {
     
     var locationData = [GeoPoint]()
     var yenikonum = [[Double]]()
+    var updateCalled = false
  
     
     override func viewDidLoad() {
@@ -110,26 +111,29 @@ class savedVC: UIViewController {
         
         
         func verileriGüncelle(){
-            print(matchingDocuments[1])
-            for i in 0..<matchingDocuments.count {
-                //let document = matchingDocuments[i]
-                let arac = i+1
-                for j in 0..<matchingDocuments[i].count {
-                    let documentID = matchingDocuments[i][j]
-                    print(documentID)
-                    
-                    let updateData = ["arac": arac]
-                    Firestore.firestore().collection("information").document(
-                        documentID).updateData(["arac": 2]) { (error) in //arac:2 değeri değişecek birden fazla kez güncelleme işlmei yapıyor bu sorun çözülecek
-                            if let error = error {
-                                print("Error updating document with ID \(documentID): \(error)")
-                            } else {
-                                print("Document with ID \(documentID) successfully updated!")
+            if !updateCalled{
+                print(matchingDocuments[2])
+                for i in 0..<matchingDocuments.count {
+                    //let document = matchingDocuments[i]
+                    let arac = i+1
+                    for j in 0..<matchingDocuments[i].count {
+                        let documentID = matchingDocuments[i][j]
+                        //print(documentID)
+                        
+                        let updateData = ["arac": arac]
+                        Firestore.firestore().collection("information").document(
+                            documentID).updateData(updateData) { (error) in //arac:2 değeri değişecek birden fazla kez güncelleme işlmei yapıyor bu sorun çözülecek
+                                if let error = error {
+                                    print("Error updating document with ID \(documentID): \(error)")
+                                } else {
+                                    print("Document with ID \(documentID) successfully updated!")
+                                }
                             }
-                        }
+                    }
                 }
+                updateCalled = true
             }
-            return
+            
         }
 
     
