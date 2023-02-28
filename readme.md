@@ -12,6 +12,7 @@ Bu proje MVC mimarisi ile geliştirilmektedir.
 ## Kullanılan Teknolojiler
 - MapKit
 - Firebase
+-Mapbox Optimization API
 - K-Ortalamalar
 
 
