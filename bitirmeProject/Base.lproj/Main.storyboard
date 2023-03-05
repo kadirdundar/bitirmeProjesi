@@ -51,6 +51,33 @@
             </objects>
             <point key="canvasLocation" x="2181.5384615384614" y="844.54976303317528"/>
         </scene>
+        <!--DriversVC-->
+        <scene sceneID="htL-5A-T0O">
+            <objects>
+                <viewController id="TQk-TP-hZy" customClass="driversVC" customModule="bitirmeProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Zfa-kL-1Ea">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="787"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7ti-8q-Gjh">
+                                <rect key="frame" x="0.0" y="47" width="390" height="740"/>
+                                <standardMapConfiguration key="preferredConfiguration"/>
+                            </mapView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="C4o-Tw-6gZ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="C4o-Tw-6gZ" firstAttribute="bottom" secondItem="7ti-8q-Gjh" secondAttribute="bottom" id="75K-oE-9U6"/>
+                            <constraint firstItem="7ti-8q-Gjh" firstAttribute="leading" secondItem="C4o-Tw-6gZ" secondAttribute="leading" id="WtM-MU-fYn"/>
+                            <constraint firstItem="C4o-Tw-6gZ" firstAttribute="trailing" secondItem="7ti-8q-Gjh" secondAttribute="trailing" id="gKg-dR-zvi"/>
+                            <constraint firstItem="7ti-8q-Gjh" firstAttribute="top" secondItem="C4o-Tw-6gZ" secondAttribute="top" id="lda-5G-reD"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UZT-YO-Bgr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="425" y="1296"/>
+        </scene>
         <!--Ayarlar-->
         <scene sceneID="Err-PE-2Eg">
             <objects>
@@ -82,7 +109,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lnm-CZ-koh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1270.7692307692307" y="1304.5023696682463"/>
+            <point key="canvasLocation" x="1271" y="1296"/>
         </scene>
         <!--Harita-->
         <scene sceneID="Vkt-gH-zU0">
@@ -192,6 +219,7 @@
                         <outlet property="emailText" destination="Wfn-xV-khA" id="7Li-RR-o00"/>
                         <outlet property="sifreText" destination="6SR-n1-4ms" id="pIc-H2-GgP"/>
                         <segue destination="RPx-sl-xU0" kind="presentation" identifier="opentotabbar" modalPresentationStyle="fullScreen" id="Ekq-fR-Awx"/>
+                        <segue destination="TQk-TP-hZy" kind="presentation" identifier="opentodrivers" id="ZfS-Ue-vEj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uB8-QG-E4R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

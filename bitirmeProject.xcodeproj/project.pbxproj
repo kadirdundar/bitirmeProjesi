@@ -20,6 +20,7 @@
 		3F84429C2906B22700B5FEA1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F84429B2906B22700B5FEA1 /* Assets.xcassets */; };
 		3F84429F2906B22700B5FEA1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F84429D2906B22700B5FEA1 /* LaunchScreen.storyboard */; };
 		3FBC8881293E06D800D3B746 /* kmeans.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBC8880293E06D800D3B746 /* kmeans.swift */; };
+		3FC5943D29B3F5BA005F81E2 /* driversVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC5943C29B3F5BA005F81E2 /* driversVC.swift */; };
 		3FF9C1BC2938F676001B0F1B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3FF9C1BB2938F676001B0F1B /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +39,7 @@
 		3F84429E2906B22700B5FEA1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3F8442A02906B22700B5FEA1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3FBC8880293E06D800D3B746 /* kmeans.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kmeans.swift; sourceTree = "<group>"; };
+		3FC5943C29B3F5BA005F81E2 /* driversVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = driversVC.swift; sourceTree = "<group>"; };
 		3FF9C1BB2938F676001B0F1B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C8F2B9027A0664E5194C69E2 /* Pods-bitirmeProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bitirmeProject.debug.xcconfig"; path = "Target Support Files/Pods-bitirmeProject/Pods-bitirmeProject.debug.xcconfig"; sourceTree = "<group>"; };
 		CE6EC757CD85B70122B8D17C /* Pods-bitirmeProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bitirmeProject.release.xcconfig"; path = "Target Support Files/Pods-bitirmeProject/Pods-bitirmeProject.release.xcconfig"; sourceTree = "<group>"; };
@@ -79,20 +81,37 @@
 			children = (
 				3F8442922906B22700B5FEA1 /* AppDelegate.swift */,
 				3F8442942906B22700B5FEA1 /* SceneDelegate.swift */,
-				3F8442962906B22700B5FEA1 /* ViewController.swift */,
-				3F20881E290C38600038CB69 /* settingVC.swift */,
 				3F8442982906B22700B5FEA1 /* Main.storyboard */,
-				3F20881C290C38170038CB69 /* savedVC.swift */,
-				3F20881A290C37EC0038CB69 /* choosingVC.swift */,
-				3FBC8880293E06D800D3B746 /* kmeans.swift */,
-				3F7A57132944BBC900689EB8 /* ScaleData.swift */,
-				3F7A57152944BEDC00689EB8 /* UnscaleData.swift */,
+				3FC5943A29B3F270005F81E2 /* VC */,
+				3FC5943B29B3F29B005F81E2 /* Models */,
 				3F84429B2906B22700B5FEA1 /* Assets.xcassets */,
 				3F84429D2906B22700B5FEA1 /* LaunchScreen.storyboard */,
 				3F8442A02906B22700B5FEA1 /* Info.plist */,
 				3FF9C1BB2938F676001B0F1B /* GoogleService-Info.plist */,
 			);
 			path = bitirmeProject;
+			sourceTree = "<group>";
+		};
+		3FC5943A29B3F270005F81E2 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				3F8442962906B22700B5FEA1 /* ViewController.swift */,
+				3F20881A290C37EC0038CB69 /* choosingVC.swift */,
+				3F20881C290C38170038CB69 /* savedVC.swift */,
+				3F20881E290C38600038CB69 /* settingVC.swift */,
+				3FC5943C29B3F5BA005F81E2 /* driversVC.swift */,
+			);
+			name = VC;
+			sourceTree = "<group>";
+		};
+		3FC5943B29B3F29B005F81E2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3FBC8880293E06D800D3B746 /* kmeans.swift */,
+				3F7A57152944BEDC00689EB8 /* UnscaleData.swift */,
+				3F7A57132944BBC900689EB8 /* ScaleData.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		5B2AF7C7CFC42BBAB61A4B5B /* Frameworks */ = {
@@ -228,6 +247,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FC5943D29B3F5BA005F81E2 /* driversVC.swift in Sources */,
 				3FBC8881293E06D800D3B746 /* kmeans.swift in Sources */,
 				3F8442972906B22700B5FEA1 /* ViewController.swift in Sources */,
 				3F8442932906B22700B5FEA1 /* AppDelegate.swift in Sources */,

@@ -47,17 +47,14 @@ class savedVC: UIViewController {
                             self.locationData.append(konum)
                             yenikonum.append([konum.latitude, konum.longitude])
                             //print(konum) <FIRGeoPoint: (41.132631, 28.328366)> konumdan gelen veri bu şekilde
-                            
                         }
                     }
-                    
                     print(yenikonum[0])//basarılı
                     verileriIsle()
                 }
             }
         }
     }
-
     func verileriIsle(){
         let scaledata = ScaleData(data: yenikonum).scaleData(data: yenikonum)
         let k = 5
@@ -68,7 +65,7 @@ class savedVC: UIViewController {
         
         let kumeSayisi = unscaleData.count
   
-       var matchingDocuments = [[String]](repeating: [], count: kumeSayisi)
+        var matchingDocuments = [[String]](repeating: [], count: kumeSayisi)
         
        
         

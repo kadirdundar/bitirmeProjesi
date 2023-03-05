@@ -28,7 +28,7 @@ class ViewController: UIViewController {
                     if self.segmentControllerValue == false{
                         self.checkEmailExistsInFirestore(email: self.emailText.text!) { value in
                             if value{
-                                self.performSegue(withIdentifier: "opentotabbar", sender: nil)
+                                self.performSegue(withIdentifier: "opentodrivers", sender: nil)
                                 //basarili
                             }
                             else{
@@ -38,7 +38,7 @@ class ViewController: UIViewController {
              
                     }
                     
-                    self.performSegue(withIdentifier: "opentotabbar", sender: nil)
+                    self.performSegue(withIdentifier: "opentodrivers", sender: nil)
                 }
                 else{
                     self.hatamesaji(baslık: "hata", text: "giriş işlemi gerçekleştirilemedi tekrar deneyiniz\(error?.localizedDescription)")
