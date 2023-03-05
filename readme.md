@@ -21,11 +21,10 @@ Bu proje MVC mimarisi ile geliştirilmektedir.
 - Firebase bağlantıları
 - Kümeleme için gerekli yöntemler ve uygulanması
 - Kümelenmiş verilerin veritabanında güncellenmesi
-
+- Giriş doğrulama işlemleri
 
 ## Tamamlanacak Kısımlar
-- Giriş doğrulama işlemleri
-- Servisçilerin uygulamaya dahil olması için tasarım güncellemesi
+
 - Servisçilerin gidecekleri konumların veritabınından çekilmesi
 - Gidilmesi gereken tüm konumlara uğrayan bir rota oluşturulması ve bu rotanın navigasyonda gösterilmesi
 
