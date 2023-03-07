@@ -73,6 +73,9 @@
                             <constraint firstItem="7ti-8q-Gjh" firstAttribute="top" secondItem="C4o-Tw-6gZ" secondAttribute="top" id="lda-5G-reD"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="7ti-8q-Gjh" id="OFz-oB-HOQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UZT-YO-Bgr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
