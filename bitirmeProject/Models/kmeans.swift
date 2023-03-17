@@ -18,6 +18,7 @@ struct KMeansClusterer{
         self.maxElementCount = maxElementCount
         self.iterations = iterations
     }
+    
     func cluster() -> [[[Double]]] {
         // Öncelikle verileri kümelerine ayrılacak şekilde rasgele dağıtıyoruz.
         var clusters = [[[Double]]](repeating: [], count: k)
@@ -48,7 +49,7 @@ struct KMeansClusterer{
             clusters = updatedClusters
         }
         
-        // Küme merkezlerini döndürmüyor, sadece verileri döndürüyoruz.
+       
         return clusters.map { cluster in
             return cluster.map { datapoint in
                 return datapoint
@@ -77,7 +78,7 @@ struct KMeansClusterer{
         return clusterCentroids
     }
     // Bu fonksiyon, verileri verilen küme merkezlerine göre kümelere atar.
-    // This method assigns data points to clusters based on the given cluster centroids.
+  
     func assignDataToClusters(clusters: [[[Double]]], centroids: [[Double]]) -> [[[Double]]] {
         var updatedClusters = [[[Double]]](repeating: [], count: k)
         

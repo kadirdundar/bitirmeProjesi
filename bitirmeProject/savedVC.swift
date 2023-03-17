@@ -18,20 +18,10 @@ class savedVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         verileriAl()
-        //verileriIsle()
-        // Do any additional setup after loading the view.
+       
     }
     
     
-    //let data = [[2.0,0.0]]
-    //let scaledata = ScaleData(data: data)
-    //let scaleddata = scaledata.scaleData(data: data)
-    //let k = 4  kişi sayımıza göre belirlenecek
-    //let clusterer = KMeansClusterer(data: scaledData, k: k, maxElementCount: 20, iterations: 350)
-    //let clusters = clusterer.cluster()
-    //let unscaleData = UnscaledData(clusters,data)
-    //let unscaledData = unscaleData.unscaleData(clusters: clusters, data: data)
-    // bütün veriler çekilecek k-means ile hesapkayığ gönderilecek
     
     func verileriAl() {
         let firestoreDatabase = Firestore.firestore()
@@ -57,7 +47,7 @@ class savedVC: UIViewController {
     }
     func verileriIsle(){
         let scaledata = ScaleData(data: yenikonum).scaleData(data: yenikonum)
-        let k = 5
+        let k = Int(yenikonum.count/20)
         let clusterer = KMeansClusterer(data: scaledata, k: k, maxElementCount: 20, iterations: 350)
         let clusters = clusterer.cluster()
         
@@ -119,7 +109,7 @@ class savedVC: UIViewController {
                         
                         let updateData = ["arac": arac]
                         Firestore.firestore().collection("information").document(
-                            documentID).updateData(updateData) { (error) in //arac:2 değeri değişecek birden fazla kez güncelleme işlmei yapıyor bu sorun çözülecek
+                            documentID).updateData(updateData) { (error) in
                                 if let error = error {
                                     print("Error updating document with ID \(documentID): \(error)")
                                 } else {
@@ -133,13 +123,7 @@ class savedVC: UIViewController {
             
         }
 
-    
     }
-    
-
-    
-  
-
     
 }
 
