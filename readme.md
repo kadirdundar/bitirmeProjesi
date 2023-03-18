@@ -22,11 +22,13 @@ Bu proje MVC mimarisi ile geliştirilmektedir.
 - Kümeleme için gerekli yöntemler ve uygulanması
 - Kümelenmiş verilerin veritabanında güncellenmesi
 - Giriş doğrulama işlemleri
-
-## Tamamlanacak Kısımlar
-
 - Servisçilerin gidecekleri konumların veritabınından çekilmesi
 - Gidilmesi gereken tüm konumlara uğrayan bir rota oluşturulması ve bu rotanın navigasyonda gösterilmesi
+
+## Tamamlanacak Kısımlar
+-Rotanın daha iyi optimize edilmesi
+-Hataların giderilmesi
+
 
 
 ## Tasarım
