@@ -82,19 +82,7 @@ class choosingVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate
        
         print("tüklandii")
         
-        //let data = [[2.0,0.0]]
-        //let scaledata = ScaleData(data: data)
-        //let scaleddata = scaledata.scaleData(data: data)
-        //let k = 4  kişi sayımıza göre belirlenecek
-        //let clusterer = KMeansClusterer(data: scaledData, k: k, maxElementCount: 20, iterations: 350)
-        //let clusters = clusterer.cluster()
-        //let unscaleData = UnscaledData(clusters,data)
-        //let unscaledData = unscaleData.unscaleData(clusters: clusters, data: data)
-        // bütün veriler çekilecek k-means ile hesapkayığ gönderilecek
     }
-    
-    
-    
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
@@ -104,9 +92,7 @@ class choosingVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate
         mapView.setRegion(region, animated: true)
         
     }
-    
-   
-    
+
     
 }
 

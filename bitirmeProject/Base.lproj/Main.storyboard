@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Map view configurations" minToolsVersion="14.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -45,7 +46,15 @@
                         <viewLayoutGuide key="safeArea" id="LcV-sW-L0G"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Git" image="doc.fill" catalog="system" id="Ivv-JJ-pGB"/>
+                    <tabBarItem key="tabBarItem" title="Git" id="Ivv-JJ-pGB">
+                        <imageReference key="image" image="doc.fill" catalog="system" renderingMode="hierarchical-single">
+                            <hierarchicalColors>
+                                <color systemColor="systemYellowColor"/>
+                                <color systemColor="secondaryLabelColor"/>
+                                <color systemColor="tertiaryLabelColor"/>
+                            </hierarchicalColors>
+                        </imageReference>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eag-eh-IDO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -108,7 +117,15 @@
                         <viewLayoutGuide key="safeArea" id="2Zh-hC-iic"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Ayarlar" image="rectangle.portrait.and.arrow.right.fill" catalog="system" id="bBD-03-Akn"/>
+                    <tabBarItem key="tabBarItem" title="Ayarlar" id="bBD-03-Akn">
+                        <imageReference key="image" image="rectangle.portrait.and.arrow.right.fill" catalog="system" renderingMode="hierarchical-single">
+                            <hierarchicalColors>
+                                <color systemColor="systemYellowColor"/>
+                                <color systemColor="secondaryLabelColor"/>
+                                <color systemColor="tertiaryLabelColor"/>
+                            </hierarchicalColors>
+                        </imageReference>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lnm-CZ-koh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -136,7 +153,15 @@
                             <constraint firstItem="LJ5-YS-3QL" firstAttribute="trailing" secondItem="ir5-On-QVU" secondAttribute="trailing" id="yIC-fE-PBU"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Harita" image="mappin.and.ellipse" catalog="system" id="W1q-Gv-J59"/>
+                    <tabBarItem key="tabBarItem" title="Harita" id="W1q-Gv-J59">
+                        <imageReference key="image" image="mappin.and.ellipse" catalog="system" renderingMode="hierarchical-single" variableValue="1">
+                            <hierarchicalColors>
+                                <color systemColor="systemYellowColor"/>
+                                <color red="1" green="0.4939341096" blue="0.78482886149999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color red="1" green="0.4939341096" blue="0.78482886149999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </hierarchicalColors>
+                        </imageReference>
+                    </tabBarItem>
                     <connections>
                         <outlet property="mapView" destination="ir5-On-QVU" id="k9L-EP-2fi"/>
                     </connections>
@@ -153,28 +178,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TrustAI" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rrm-KW-GaH">
-                                <rect key="frame" x="83" y="73" width="213" height="81"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="29"/>
-                                <color key="textColor" systemColor="systemOrangeColor"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Adsız tasarım" translatesAutoresizingMaskIntoConstraints="NO" id="Jbt-Oy-OBZ">
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TrustAI" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rrm-KW-GaH">
+                                <rect key="frame" x="86" y="77" width="218" height="44.333333333333343"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="37"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Email" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Wfn-xV-khA">
-                                <rect key="frame" x="47" y="215" width="284" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Wfn-xV-khA">
+                                <rect key="frame" x="53" y="375.33333333333331" width="284" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Şifre" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6SR-n1-4ms">
-                                <rect key="frame" x="47" y="280" width="284" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Şİfre" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6SR-n1-4ms">
+                                <rect key="frame" x="53" y="442.33333333333331" width="284" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hD3-Ob-CFi">
-                                <rect key="frame" x="65" y="367" width="91" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hD3-Ob-CFi">
+                                <rect key="frame" x="53" y="514.33333333333337" width="91" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Giriş Yap">
                                     <color key="baseForegroundColor" systemColor="systemGray6Color"/>
@@ -184,25 +208,15 @@
                                     <action selector="girisYapTıklandı:" destination="15g-MH-Je4" eventType="touchUpInside" id="pyl-Wl-XaW"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qP0-gJ-nM4">
-                                <rect key="frame" x="213" y="367" width="83" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Kayıt Ol"/>
-                                <connections>
-                                    <action selector="kayitolTiklandi:" destination="15g-MH-Je4" eventType="touchUpInside" id="fyf-OZ-ooe"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="by TrustAI" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YiT-M0-J2p">
-                                <rect key="frame" x="151" y="789" width="77" height="21"/>
+                                <rect key="frame" x="155" y="789" width="80" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="iIw-HC-GpG">
-                                <rect key="frame" x="121" y="162" width="137" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="iIw-HC-GpG">
+                                <rect key="frame" x="126.66666666666669" y="284.33333333333331" width="137" height="32"/>
                                 <color key="backgroundColor" systemColor="tertiaryLabelColor"/>
                                 <segments>
                                     <segment title="Yolcu"/>
@@ -214,9 +228,40 @@
                                     <action selector="switchController:" destination="15g-MH-Je4" eventType="valueChanged" id="Xgz-RA-ckx"/>
                                 </connections>
                             </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qP0-gJ-nM4">
+                                <rect key="frame" x="254" y="514.33333333333337" width="83" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Kayıt Ol"/>
+                                <connections>
+                                    <action selector="kayitolTiklandi:" destination="15g-MH-Je4" eventType="touchUpInside" id="fyf-OZ-ooe"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Kxs-8S-7Pe"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="qP0-gJ-nM4" firstAttribute="top" secondItem="6SR-n1-4ms" secondAttribute="bottom" constant="38" id="1Dd-SC-IhS"/>
+                            <constraint firstItem="Jbt-Oy-OBZ" firstAttribute="leading" secondItem="Mc4-DA-E6e" secondAttribute="leading" id="6js-dT-F2l"/>
+                            <constraint firstAttribute="bottom" secondItem="Jbt-Oy-OBZ" secondAttribute="bottom" id="9uD-Hb-beo"/>
+                            <constraint firstItem="6SR-n1-4ms" firstAttribute="leading" secondItem="Kxs-8S-7Pe" secondAttribute="leading" constant="53" id="Byq-Tc-cKs"/>
+                            <constraint firstItem="Kxs-8S-7Pe" firstAttribute="trailing" secondItem="6SR-n1-4ms" secondAttribute="trailing" constant="53" id="Op6-ae-aVC"/>
+                            <constraint firstItem="Jbt-Oy-OBZ" firstAttribute="top" secondItem="Mc4-DA-E6e" secondAttribute="top" id="RrQ-eL-tcq"/>
+                            <constraint firstItem="rrm-KW-GaH" firstAttribute="leading" secondItem="Kxs-8S-7Pe" secondAttribute="leading" constant="86" id="TC6-MY-ctf"/>
+                            <constraint firstItem="rrm-KW-GaH" firstAttribute="top" secondItem="Kxs-8S-7Pe" secondAttribute="top" constant="30" id="WG7-rj-flr"/>
+                            <constraint firstItem="hD3-Ob-CFi" firstAttribute="top" secondItem="6SR-n1-4ms" secondAttribute="bottom" constant="38" id="X4o-Np-3lI"/>
+                            <constraint firstItem="Wfn-xV-khA" firstAttribute="leading" secondItem="Kxs-8S-7Pe" secondAttribute="leading" constant="53" id="XVS-0Z-eVh"/>
+                            <constraint firstItem="Wfn-xV-khA" firstAttribute="top" secondItem="iIw-HC-GpG" secondAttribute="bottom" constant="60" id="hpf-qH-Dg9"/>
+                            <constraint firstItem="hD3-Ob-CFi" firstAttribute="leading" secondItem="Kxs-8S-7Pe" secondAttribute="leading" constant="53" id="kVJ-NQ-HhO"/>
+                            <constraint firstItem="qP0-gJ-nM4" firstAttribute="leading" secondItem="hD3-Ob-CFi" secondAttribute="trailing" constant="110" id="lPI-Xz-R9H"/>
+                            <constraint firstItem="6SR-n1-4ms" firstAttribute="top" secondItem="Wfn-xV-khA" secondAttribute="bottom" constant="33" id="mvf-ot-Xlr"/>
+                            <constraint firstItem="iIw-HC-GpG" firstAttribute="top" secondItem="rrm-KW-GaH" secondAttribute="bottom" constant="163" id="pem-N4-Ujn"/>
+                            <constraint firstItem="iIw-HC-GpG" firstAttribute="centerX" secondItem="Mc4-DA-E6e" secondAttribute="centerX" id="r8a-py-dfz"/>
+                            <constraint firstItem="Kxs-8S-7Pe" firstAttribute="trailing" secondItem="qP0-gJ-nM4" secondAttribute="trailing" constant="53" id="tK5-SJ-ez5"/>
+                            <constraint firstItem="Kxs-8S-7Pe" firstAttribute="trailing" secondItem="rrm-KW-GaH" secondAttribute="trailing" constant="86" id="tdG-pd-A9g"/>
+                            <constraint firstItem="qP0-gJ-nM4" firstAttribute="leading" secondItem="hD3-Ob-CFi" secondAttribute="trailing" constant="110" id="wPz-G7-fl4"/>
+                            <constraint firstAttribute="trailing" secondItem="Jbt-Oy-OBZ" secondAttribute="trailing" id="wQf-yh-qR2"/>
+                            <constraint firstItem="Kxs-8S-7Pe" firstAttribute="trailing" secondItem="Wfn-xV-khA" secondAttribute="trailing" constant="53" id="wqv-lj-CrF"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="emailText" destination="Wfn-xV-khA" id="7Li-RR-o00"/>
@@ -238,6 +283,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
                         <segue destination="iQC-Pq-KAY" kind="relationship" relationship="viewControllers" id="oBF-mE-YDc"/>
@@ -251,6 +297,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Adsız tasarım" width="1080" height="1920"/>
         <image name="bus" catalog="system" width="128" height="122"/>
         <image name="doc.fill" catalog="system" width="115" height="128"/>
         <image name="mappin.and.ellipse" catalog="system" width="117" height="128"/>
@@ -259,6 +306,9 @@
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
@@ -271,8 +321,8 @@
         <systemColor name="systemMintColor">
             <color red="0.0" green="0.7803921568627451" blue="0.74509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
-        <systemColor name="systemOrangeColor">
-            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="tertiaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29803921568627451" colorSpace="custom" customColorSpace="sRGB"/>

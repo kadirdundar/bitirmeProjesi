@@ -38,7 +38,7 @@ class ViewController: UIViewController {
              
                     }
                     
-                    self.performSegue(withIdentifier: "opentodrivers", sender: nil)
+                    self.performSegue(withIdentifier: "opentotabbar", sender: nil)
                 }
                 else{
                     self.hatamesaji(baslık: "hata", text: "giriş işlemi gerçekleştirilemedi tekrar deneyiniz\(error?.localizedDescription)")

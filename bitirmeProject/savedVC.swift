@@ -48,18 +48,29 @@ class savedVC: UIViewController {
     func verileriIsle(){
         let scaledata = ScaleData(data: yenikonum).scaleData(data: yenikonum)
         let k = Int(yenikonum.count/20)
-        let clusterer = KMeansClusterer(data: scaledata, k: k, maxElementCount: 20, iterations: 350)
+        print("kümeSayisi\(k)")
+        print("***eleman sayisi \(yenikonum.count)")
+        let clusterer = KMeansClusterer(data: scaledata, k: k, maxElementCount: 20, iterations: 500)
         let clusters = clusterer.cluster()
         
         let unscaleData = UnscaledData(clusters: clusters, data: yenikonum).unscaleData(clusters: clusters, data: yenikonum)
+        print("222222 \(clusters)")
         
         let kumeSayisi = unscaleData.count
-  
+        print("unscaleEdilmiş küme sayisi\(kumeSayisi)")
+        print("*0*0*0*0*0\(unscaleData)")
+        print("scakeddata \(scaledata[1].count)")
+        for i in 0...4{
+        print("clusterr \(clusters[i].count)")
+            print("unscaleeclusterr \(unscaleData[i].count)")
+                  
+                  }
+
         var matchingDocuments = [[String]](repeating: [], count: kumeSayisi)
         
        
         
-         documentIDAl()
+        // documentIDAl()
         func documentIDAl() {
             for i in 0..<kumeSayisi {
                 for location in unscaleData[i] {
@@ -95,8 +106,7 @@ class savedVC: UIViewController {
             }
         }
 
-        
-        
+ 
         func verileriGüncelle(){
             if !updateCalled{
                 print(matchingDocuments[2])
