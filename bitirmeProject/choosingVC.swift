@@ -79,7 +79,7 @@ class choosingVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate
 
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-       
+       //seçilen konumu firebase'e gönder
         print("tüklandii")
         
     }

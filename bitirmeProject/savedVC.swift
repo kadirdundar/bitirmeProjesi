@@ -7,7 +7,7 @@
 
 import UIKit
 import FirebaseFirestore
-
+//kullanıcının emaili ve hangi kümede olduğu yazdırılacak
 class savedVC: UIViewController {
     
     var locationData = [GeoPoint]()
@@ -72,12 +72,14 @@ class savedVC: UIViewController {
         
         // documentIDAl()
         func documentIDAl() {
+            let group = DispatchGroup()
             for i in 0..<kumeSayisi {
                 for location in unscaleData[i] {
                     let longitude = location[1]
                     let latitude = location[0]
                     let point = [GeoPoint(latitude: latitude, longitude: longitude)]
                     let geoPoint = point[0]
+                    group.enter()
                     let query = Firestore.firestore().collection("information").whereField("location", isEqualTo: geoPoint)
                     query.getDocuments { (snapshot, error) in
                         if let error = error {
@@ -86,30 +88,47 @@ class savedVC: UIViewController {
                             for document in snapshot!.documents {
                                 matchingDocuments[i].append(document.documentID)
                             }
-                            checkMatchingDocuments()
+                        }
+                        group.leave()
+                    }
+                }
+            }
+            group.notify(queue: .main) {
+                verileriGüncelle()
+            }
+        }
+        let dispatchGroup = DispatchGroup()
+        for i in 0..<kumeSayisi {
+            for location in unscaleData[i] {
+                let longitude = location[1]
+                let latitude = location[0]
+                let point = [GeoPoint(latitude: latitude, longitude: longitude)]
+                let geoPoint = point[0]
+                
+                let query = Firestore.firestore().collection("information").whereField("location", isEqualTo: geoPoint)
+                
+                dispatchGroup.enter()
+                query.getDocuments { (snapshot, error) in
+                    if let error = error {
+                        print("Error getting documents: \(error)")
+                    } else {
+                        for document in snapshot!.documents {
+                            matchingDocuments[i].append(document.documentID)
                         }
                     }
+                    dispatchGroup.leave()
                 }
             }
         }
 
-        func checkMatchingDocuments() {
-            var allDocumentsRetrieved = true
-            for i in 0..<matchingDocuments.count {
-                if matchingDocuments[i].isEmpty {
-                    allDocumentsRetrieved = false
-                    break
-                }
-            }
-            if allDocumentsRetrieved {
-                verileriGüncelle()
-            }
+        dispatchGroup.notify(queue: .main) {
+            verileriGüncelle()
         }
 
  
         func verileriGüncelle(){
             if !updateCalled{
-                print(matchingDocuments[2])
+                print("kontrol değişkeni  55555555555555555 \(matchingDocuments[2])")
                 for i in 0..<matchingDocuments.count {
                     //let document = matchingDocuments[i]
                     let arac = i+1
