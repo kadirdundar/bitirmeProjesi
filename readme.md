@@ -22,13 +22,15 @@ Bu proje MVC mimarisi ile geliştirilmektedir.
 - Kümeleme için gerekli yöntemler ve uygulanması
 - Kümelenmiş verilerin veritabanında güncellenmesi
 - Giriş doğrulama işlemleri
-
-## Tamamlanacak Kısımlar
-
 - Servisçilerin gidecekleri konumların veritabınından çekilmesi
 - Gidilmesi gereken tüm konumlara uğrayan bir rota oluşturulması ve bu rotanın navigasyonda gösterilmesi
 
+## Tamamlanacak Kısımlar
+-Rotanın daha iyi optimize edilmesi
+-Hataların giderilmesi
+
+
 
 ## Tasarım
-![şema](https://github.com/kadirdundar/bitirmeProjesi/blob/main/resimtekno/Ekran%20Resmi%202023-01-30%2016.29.54.png)
+![şema](https://github.com/kadirdundar/bitirmeProjesi/blob/main/resimtekno/Ekran%20Resmi%202023-03-18%2019.57.08.png)
 
