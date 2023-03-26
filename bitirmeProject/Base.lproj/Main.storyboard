@@ -55,6 +55,10 @@
                             </hierarchicalColors>
                         </imageReference>
                     </tabBarItem>
+                    <connections>
+                        <outlet property="carNumber" destination="2pS-4Q-EuZ" id="0xI-AE-b0g"/>
+                        <outlet property="emailInformationLabel" destination="aEi-nE-3w5" id="ReJ-Ca-rbr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eag-eh-IDO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

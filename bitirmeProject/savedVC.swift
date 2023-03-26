@@ -7,9 +7,12 @@
 
 import UIKit
 import FirebaseFirestore
-//kullanıcının emaili ve hangi kümede olduğu yazdırılacak
+import FirebaseAuth
+
 class savedVC: UIViewController {
     
+    @IBOutlet weak var carNumber: UILabel!
+    @IBOutlet weak var emailInformationLabel: UILabel!
     var locationData = [GeoPoint]()
     var yenikonum = [[Double]]()
     var updateCalled = false
@@ -20,7 +23,10 @@ class savedVC: UIViewController {
         verileriAl()
        
     }
-    
+    func getInformationOfVehicle(){
+        emailInformationLabel.text = FirebaseAuth.Auth.auth().currentUser?.email
+        //kullanıcı email ismiyle sorgu yapılacak hangi aracdaysa o eşitlencek
+    }
     
     
     func verileriAl() {

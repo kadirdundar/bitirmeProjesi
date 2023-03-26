@@ -63,16 +63,7 @@ class settingVC: UIViewController {
             
         }
      }
-  /*  func deneme(){
-        let coordinates: [GeoPoint] = (0..<100).map { _ in
-               let latitude = Double.random(in: 41.0...42.0)
-               let longitude = Double.random(in: 28.0...29.0)
-               return GeoPoint(latitude: latitude, longitude: longitude)
-           }
-        
-        
-        
-    }*/
+
     }
      
     
