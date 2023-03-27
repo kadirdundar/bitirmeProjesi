@@ -281,7 +281,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="lWb-gL-ecW">
             <objects>
-                <tabBarController id="RPx-sl-xU0" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tabBar" id="RPx-sl-xU0" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="dNm-07-LG3"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Pge-sr-fzP">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="49"/>

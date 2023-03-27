@@ -24,8 +24,17 @@ class savedVC: UIViewController {
        
     }
     func getInformationOfVehicle(){
-        emailInformationLabel.text = FirebaseAuth.Auth.auth().currentUser?.email
-        //kullanıcı email ismiyle sorgu yapılacak hangi aracdaysa o eşitlencek
+        let currentUser = FirebaseAuth.Auth.auth().currentUser?.email
+        emailInformationLabel.text = currentUser
+        Firestore.firestore().collection("information").whereField("email", isEqualTo: currentUser).getDocuments(completion: { snapshot, error in
+            if let error = error{
+                print(error)
+            }
+            else{
+                let arac = snapshot?.documents.first?.data()["arac"] 
+                self.carNumber.text = arac as? String
+            }
+        })
     }
     
     

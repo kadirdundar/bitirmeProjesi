@@ -30,13 +30,13 @@ class choosingVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate
             let touchCoordinate = mapView.convert(touchPoint, toCoordinateFrom: mapView)
             let annotation = MKPointAnnotation()
             annotation.coordinate = touchCoordinate
-            annotation.title = "seçitiğiniz bölge"
-            annotation.subtitle = "örnek"
+            annotation.title = "Gitmek istediğiniz konum"
+            annotation.subtitle = "Artı butonuna tıklayınız"
             mapView.addAnnotation(annotation)
+            mapView.selectAnnotation(annotation, animated: true) // iğne seçili hale getiriliyor
         }
     }
     
-    //annotation artı butonu ekledik.
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         if annotation is MKUserLocation {
             return nil
@@ -46,12 +46,13 @@ class choosingVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate
         var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseIdentifier)
         
         if annotationView == nil {
-            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseIdentifier)
+            annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseIdentifier)
             annotationView?.canShowCallout = true
-            annotationView?.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+            annotationView?.rightCalloutAccessoryView = UIButton(type: .contactAdd)
         } else {
             annotationView?.annotation = annotation
         }
+        
         return annotationView
     }
     
@@ -59,14 +60,40 @@ class choosingVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate
         let firestore = Firestore.firestore()
         guard let annatation = view.annotation else {return}
         let data = ["email": FirebaseAuth.Auth.auth().currentUser?.email,"arac":1,"location":GeoPoint(latitude: annatation.coordinate.latitude, longitude: annatation.coordinate.longitude)] as [String : Any]
-        
-        firestore.collection("information").addDocument(data: data){error in
-            if error != nil{
-                print("veri yüklenirken hata oluştu")}
-            else{print("veri aktarımı başarılı")}
+        firestore.collection("information").whereField("email", isEqualTo: FirebaseAuth.Auth.auth().currentUser?.email).getDocuments { querySnapshot, error in
+            if let error = error {
+                        print("Hata oluştu: \(error.localizedDescription)")
+                    } else if !querySnapshot!.documents.isEmpty {
+                        print("Kullanıcının daha önce kaydedilmiş bir konumu var.")
+                        // Kullanıcıya bir uyarı gösterme
+                        let alert = UIAlertController(title: "Hata", message: "Bu konum daha önce kaydedilmiş.", preferredStyle: .alert)
+                        let okAction = UIAlertAction(title: "Tamam", style: .default, handler: nil)
+                        let updateAction = UIAlertAction(title: "Güncelle", style: .destructive) { action in
+                                        // Firestore veritabanından veriyi silme
+                            let documentID = querySnapshot!.documents.first!.documentID
+                                       firestore.collection("information").document(documentID).setData(data) { error in
+                                           if let error = error {
+                                               print("Veri güncellenirken hata oluştu: \(error.localizedDescription)")
+                                           } else {
+                                               print("Veri güncellendi.")
+                                           }
+                                       }
+                            print("Veri silindi.")
+                                    }
+                        alert.addAction(okAction)
+                        alert.addAction(updateAction)
+                        self.present(alert, animated: true, completion: nil)
+                    }
+            else{  firestore.collection("information").addDocument(data: data){error in
+                if error != nil{
+                    print("veri yüklenirken hata oluştu")}
+                else{print("veri aktarımı başarılı")}
+            }
         }
+    }
+      
         //seçilen konumu firebase'e gönder
-        //geopopint olarak
+        //geopopint olarak Basarili
         print("tıklandı")
     }
     
