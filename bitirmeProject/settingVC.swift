@@ -6,11 +6,23 @@
 //
 
 import UIKit
-import FirebaseFirestore
+import FirebaseAuth
+//import FirebaseFirestore
 
 
 class settingVC: UIViewController {
+    let firebaseauth = FirebaseAuth.Auth.self
     
+    @IBAction func cikisYapTiklandi(_ sender: Any) {
+        do {
+            try firebaseauth.auth().signOut()
+            performSegue(withIdentifier: "toSignIn", sender: nil)
+        }
+        catch{
+            print("hata")
+        }
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -20,12 +32,11 @@ class settingVC: UIViewController {
   
     
     
-    let firestoreDatabase = Firestore.firestore()
-    
-    
+    //let firestoreDatabase = Firestore.firestore()
+   
      
 
-    func generateRandomEmails(count: Int) -> [String] {
+   /* func generateRandomEmails(count: Int) -> [String] {
         let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
         var emailList = [String]()
         
@@ -62,7 +73,7 @@ class settingVC: UIViewController {
             
             
         }
-     }
+     }*/
 
     }
      

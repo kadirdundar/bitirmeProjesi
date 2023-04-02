@@ -24,17 +24,23 @@ class savedVC: UIViewController {
        
     }
     func getInformationOfVehicle(){
-        let currentUser = FirebaseAuth.Auth.auth().currentUser?.email
+        guard let currentUser = FirebaseAuth.Auth.auth().currentUser?.email else { return }
         emailInformationLabel.text = currentUser
+        
         Firestore.firestore().collection("information").whereField("email", isEqualTo: currentUser).getDocuments(completion: { snapshot, error in
-            if let error = error{
-                print(error)
+            if let error = error {
+                print(error.localizedDescription)
+                return
             }
-            else{
-                let arac = snapshot?.documents.first?.data()["arac"] 
-                self.carNumber.text = arac as? String
+            
+            if let document = snapshot?.documents.first {
+                print(document)
+                if let aracNumber = document.get("arac") as? Int {
+                    self.carNumber.text = String(aracNumber)
+                }
             }
         })
+
     }
     
     
@@ -63,29 +69,21 @@ class savedVC: UIViewController {
     func verileriIsle(){
         let scaledata = ScaleData(data: yenikonum).scaleData(data: yenikonum)
         let k = Int(yenikonum.count/20)
-        print("kümeSayisi\(k)")
-        print("***eleman sayisi \(yenikonum.count)")
+      
         let clusterer = KMeansClusterer(data: scaledata, k: k, maxElementCount: 20, iterations: 500)
         let clusters = clusterer.cluster()
         
         let unscaleData = UnscaledData(clusters: clusters, data: yenikonum).unscaleData(clusters: clusters, data: yenikonum)
-        print("222222 \(clusters)")
+       
         
         let kumeSayisi = unscaleData.count
-        print("unscaleEdilmiş küme sayisi\(kumeSayisi)")
-        print("*0*0*0*0*0\(unscaleData)")
-        print("scakeddata \(scaledata[1].count)")
-        for i in 0...4{
-        print("clusterr \(clusters[i].count)")
-            print("unscaleeclusterr \(unscaleData[i].count)")
-                  
-                  }
+      
 
         var matchingDocuments = [[String]](repeating: [], count: kumeSayisi)
         
        
         
-        // documentIDAl()
+        documentIDAl()
         func documentIDAl() {
             let group = DispatchGroup()
             for i in 0..<kumeSayisi {
@@ -143,9 +141,9 @@ class savedVC: UIViewController {
  
         func verileriGüncelle(){
             if !updateCalled{
-                print("kontrol değişkeni  55555555555555555 \(matchingDocuments[2])")
+                
                 for i in 0..<matchingDocuments.count {
-                    //let document = matchingDocuments[i]
+                    
                     let arac = i+1
                     for j in 0..<matchingDocuments[i].count {
                         let documentID = matchingDocuments[i][j]
@@ -159,13 +157,19 @@ class savedVC: UIViewController {
                                 } else {
                                     print("Document with ID \(documentID) successfully updated!")
                                 }
+                                
                             }
+                       
                     }
                 }
+               
                 updateCalled = true
+                self.getInformationOfVehicle()
             }
             
+            
         }
+        
 
     }
     

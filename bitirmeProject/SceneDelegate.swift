@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseFirestore
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -14,14 +15,23 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
+        
         let guncelkullanıcı = Auth.auth().currentUser
                 if guncelkullanıcı != nil{
-                    let board = UIStoryboard(name: "Main", bundle: nil)
-                    let tabBar = board.instantiateViewController(withIdentifier: "tabBar") as! UITabBarController
-                    window?.rootViewController = tabBar
+                    checkEmailExistsInFirestore(email: guncelkullanıcı?.email ?? "") { value in
+                        if value{
+                            let board = UIStoryboard(name: "Main", bundle: nil)
+                            let routes = board.instantiateViewController(withIdentifier: "routes") 
+                            self.window?.rootViewController = routes
+                        }
+                        else {
+                            let board = UIStoryboard(name: "Main", bundle: nil)
+                            let tabBar = board.instantiateViewController(withIdentifier: "tabBar") as! UITabBarController
+                            self.window?.rootViewController = tabBar
+                        }
+                    }
+                    
+                    
                 }
         guard let _ = (scene as? UIWindowScene) else { return }
     }
@@ -57,3 +67,26 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 }
 
+extension SceneDelegate {
+    func checkEmailExistsInFirestore(email: String, completion: @escaping (Bool) -> Void) {
+        let db = Firestore.firestore()
+        let controlRef = db.collection("control")
+        let query = controlRef.whereField("email", isEqualTo: email)
+
+        query.getDocuments { (snapshot, error) in
+            if let error = error {
+                print("Error fetching documents: \(error)")
+                completion(false)
+                return
+            }
+            
+            guard let snapshot = snapshot else {
+                print("Snapshot is nil")
+                completion(false)
+                return
+            }
+            
+            completion(!snapshot.isEmpty)
+        }
+    }
+}

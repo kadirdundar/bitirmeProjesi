@@ -20,31 +20,53 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aEi-nE-3w5">
-                                <rect key="frame" x="180" y="194" width="104" height="54"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" image="bus" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="rHF-24-xZv">
+                                <rect key="frame" x="29" y="427.33333333333331" width="83" height="78"/>
+                                <color key="tintColor" systemColor="systemYellowColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="76.666666666666629" id="bol-go-6Hz"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="NF4-pi-rNO">
+                                <rect key="frame" x="20" y="241" width="101" height="78"/>
+                                <color key="tintColor" systemColor="systemYellowColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="81.333333333333314" id="JP3-kL-yvp"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Araç numarası" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2pS-4Q-EuZ">
+                                <rect key="frame" x="139" y="445.66666666666669" width="213" height="41.333333333333314"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="bus" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="rHF-24-xZv">
-                                <rect key="frame" x="39" y="400" width="82" height="79"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="NF4-pi-rNO">
-                                <rect key="frame" x="29" y="168" width="101" height="78"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Araç numarası" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2pS-4Q-EuZ">
-                                <rect key="frame" x="147" y="428" width="214" height="42"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aEi-nE-3w5">
+                                <rect key="frame" x="129" y="263" width="223" height="54"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="223" id="3h6-mA-lfd"/>
+                                    <constraint firstAttribute="height" constant="54" id="Plg-8i-QXn"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="LcV-sW-L0G"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="aEi-nE-3w5" firstAttribute="trailing" secondItem="2pS-4Q-EuZ" secondAttribute="trailing" id="3v3-a4-SXz"/>
+                            <constraint firstItem="LcV-sW-L0G" firstAttribute="bottom" secondItem="2pS-4Q-EuZ" secondAttribute="bottom" constant="274" id="5En-kh-1RZ"/>
+                            <constraint firstItem="NF4-pi-rNO" firstAttribute="top" secondItem="LcV-sW-L0G" secondAttribute="top" constant="192" id="7ij-XN-7R4"/>
+                            <constraint firstItem="rHF-24-xZv" firstAttribute="leading" secondItem="LcV-sW-L0G" secondAttribute="leading" constant="29" id="Awr-1R-rqS"/>
+                            <constraint firstItem="rHF-24-xZv" firstAttribute="centerY" secondItem="2pS-4Q-EuZ" secondAttribute="centerY" id="RYE-XR-v0O"/>
+                            <constraint firstItem="NF4-pi-rNO" firstAttribute="leading" secondItem="LcV-sW-L0G" secondAttribute="leading" constant="20" id="Sd4-dw-XYi"/>
+                            <constraint firstItem="2pS-4Q-EuZ" firstAttribute="leading" secondItem="rHF-24-xZv" secondAttribute="trailing" constant="27" id="YJv-Dp-TNb"/>
+                            <constraint firstItem="aEi-nE-3w5" firstAttribute="top" secondItem="LcV-sW-L0G" secondAttribute="top" constant="216" id="cpC-iF-tYp"/>
+                            <constraint firstItem="rHF-24-xZv" firstAttribute="centerX" secondItem="NF4-pi-rNO" secondAttribute="centerX" id="dW3-n6-WKF"/>
+                            <constraint firstItem="aEi-nE-3w5" firstAttribute="leading" secondItem="NF4-pi-rNO" secondAttribute="trailing" constant="8" id="qsy-Xb-BA7"/>
+                            <constraint firstItem="LcV-sW-L0G" firstAttribute="bottom" secondItem="rHF-24-xZv" secondAttribute="bottom" constant="256.33333333333337" id="yKN-O5-bHF"/>
+                            <constraint firstItem="LcV-sW-L0G" firstAttribute="trailing" secondItem="aEi-nE-3w5" secondAttribute="trailing" constant="38" id="yRJ-0T-8x8"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Git" id="Ivv-JJ-pGB">
                         <imageReference key="image" image="doc.fill" catalog="system" renderingMode="hierarchical-single">
@@ -67,13 +89,13 @@
         <!--DriversVC-->
         <scene sceneID="htL-5A-T0O">
             <objects>
-                <viewController id="TQk-TP-hZy" customClass="driversVC" customModule="bitirmeProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="routes" modalPresentationStyle="fullScreen" id="TQk-TP-hZy" customClass="driversVC" customModule="bitirmeProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Zfa-kL-1Ea">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="787"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7ti-8q-Gjh">
-                                <rect key="frame" x="0.0" y="47" width="390" height="740"/>
+                                <rect key="frame" x="0.0" y="47" width="390" height="763"/>
                                 <standardMapConfiguration key="preferredConfiguration"/>
                             </mapView>
                         </subviews>
@@ -116,6 +138,9 @@
                                         </fragment>
                                     </attributedString>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="cikisYapTiklandi:" destination="xKY-lg-yoe" eventType="touchUpInside" id="pxw-KF-Uqx"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="2Zh-hC-iic"/>
@@ -130,6 +155,9 @@
                             </hierarchicalColors>
                         </imageReference>
                     </tabBarItem>
+                    <connections>
+                        <segue destination="15g-MH-Je4" kind="presentation" identifier="toSignIn" id="wA7-Wp-UEy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lnm-CZ-koh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -177,7 +205,7 @@
         <!--View Controller-->
         <scene sceneID="aul-wI-iHD">
             <objects>
-                <viewController id="15g-MH-Je4" customClass="ViewController" customModule="bitirmeProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="15g-MH-Je4" customClass="ViewController" customModule="bitirmeProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Mc4-DA-E6e">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
