@@ -86,35 +86,110 @@
             </objects>
             <point key="canvasLocation" x="2181.5384615384614" y="844.54976303317528"/>
         </scene>
-        <!--DriversVC-->
-        <scene sceneID="htL-5A-T0O">
+        <!--Ayarlar-->
+        <scene sceneID="Laa-fk-A3k">
             <objects>
-                <viewController storyboardIdentifier="routes" modalPresentationStyle="fullScreen" id="TQk-TP-hZy" customClass="driversVC" customModule="bitirmeProject" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Zfa-kL-1Ea">
+                <viewController id="tH7-la-vJs" customClass="settingVC" customModule="bitirmeProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hZb-GL-HDd">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7ti-8q-Gjh">
-                                <rect key="frame" x="0.0" y="47" width="390" height="763"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zNw-HR-RPS">
+                                <rect key="frame" x="108" y="393" width="174" height="59"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <buttonConfiguration key="configuration" style="gray" buttonSize="large">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Çıkış Yap">
+                                            <attributes>
+                                                <font key="NSFont" size="25" name="Helvetica"/>
+                                                <font key="NSOriginalFont" size="12" name="Helvetica"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="cikisYapTiklandi:" destination="tH7-la-vJs" eventType="touchUpInside" id="LNe-Eo-iEe"/>
+                                    <action selector="cikisYapTiklandi:" destination="xKY-lg-yoe" eventType="touchUpInside" id="aSl-rS-I4K"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="cxZ-j4-Sf4"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Ayarlar" id="xTs-sb-5Us">
+                        <imageReference key="image" image="rectangle.portrait.and.arrow.right.fill" catalog="system" renderingMode="hierarchical-single">
+                            <hierarchicalColors>
+                                <color systemColor="systemYellowColor"/>
+                                <color systemColor="secondaryLabelColor"/>
+                                <color systemColor="tertiaryLabelColor"/>
+                            </hierarchicalColors>
+                        </imageReference>
+                    </tabBarItem>
+                    <connections>
+                        <segue destination="15g-MH-Je4" kind="presentation" identifier="toSignIn" id="Z6x-6y-H5u"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PRK-qC-56E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1314" y="1816"/>
+        </scene>
+        <!--Harita-->
+        <scene sceneID="BIn-gv-9Rz">
+            <objects>
+                <viewController id="Mxo-Li-2NH" customClass="driversVC" customModule="bitirmeProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LOi-rG-qDA">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gBK-fh-kLp">
+                                <rect key="frame" x="0.0" y="47" width="390" height="714"/>
                                 <standardMapConfiguration key="preferredConfiguration"/>
                             </mapView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="C4o-Tw-6gZ"/>
+                        <viewLayoutGuide key="safeArea" id="Wa5-CU-RlN"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="C4o-Tw-6gZ" firstAttribute="bottom" secondItem="7ti-8q-Gjh" secondAttribute="bottom" id="75K-oE-9U6"/>
-                            <constraint firstItem="7ti-8q-Gjh" firstAttribute="leading" secondItem="C4o-Tw-6gZ" secondAttribute="leading" id="WtM-MU-fYn"/>
-                            <constraint firstItem="C4o-Tw-6gZ" firstAttribute="trailing" secondItem="7ti-8q-Gjh" secondAttribute="trailing" id="gKg-dR-zvi"/>
-                            <constraint firstItem="7ti-8q-Gjh" firstAttribute="top" secondItem="C4o-Tw-6gZ" secondAttribute="top" id="lda-5G-reD"/>
+                            <constraint firstItem="Wa5-CU-RlN" firstAttribute="bottom" secondItem="gBK-fh-kLp" secondAttribute="bottom" id="Ke3-Wh-8gA"/>
+                            <constraint firstItem="gBK-fh-kLp" firstAttribute="leading" secondItem="Wa5-CU-RlN" secondAttribute="leading" id="KzJ-5x-nxn"/>
+                            <constraint firstItem="gBK-fh-kLp" firstAttribute="top" secondItem="Wa5-CU-RlN" secondAttribute="top" id="LrB-F9-Enp"/>
+                            <constraint firstItem="Wa5-CU-RlN" firstAttribute="trailing" secondItem="gBK-fh-kLp" secondAttribute="trailing" id="YEq-E0-Utr"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Harita" id="VVa-no-eTF">
+                        <imageReference key="image" image="map" catalog="system" renderingMode="hierarchical-single">
+                            <hierarchicalColors>
+                                <color systemColor="systemYellowColor"/>
+                                <color systemColor="secondaryLabelColor"/>
+                                <color systemColor="tertiaryLabelColor"/>
+                            </hierarchicalColors>
+                        </imageReference>
+                    </tabBarItem>
                     <connections>
-                        <outlet property="mapView" destination="7ti-8q-Gjh" id="OFz-oB-HOQ"/>
+                        <outlet property="mapView" destination="gBK-fh-kLp" id="Ql7-6J-B9V"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="UZT-YO-Bgr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YAB-Q7-9HH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="425" y="1296"/>
+            <point key="canvasLocation" x="1314" y="1211"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="Ess-4b-Xkq">
+            <objects>
+                <tabBarController modalPresentationStyle="fullScreen" id="Gqk-dF-1ew" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="kaF-F3-Slh">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Mxo-Li-2NH" kind="relationship" relationship="viewControllers" id="d5D-qy-HTi"/>
+                        <segue destination="tH7-la-vJs" kind="relationship" relationship="viewControllers" id="hGr-9f-lBT"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="N3p-jG-RZg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="425" y="1489"/>
         </scene>
         <!--Ayarlar-->
         <scene sceneID="Err-PE-2Eg">
@@ -161,7 +236,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lnm-CZ-koh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1271" y="1296"/>
+            <point key="canvasLocation" x="2182" y="1514"/>
         </scene>
         <!--Harita-->
         <scene sceneID="Vkt-gH-zU0">
@@ -299,7 +374,7 @@
                         <outlet property="emailText" destination="Wfn-xV-khA" id="7Li-RR-o00"/>
                         <outlet property="sifreText" destination="6SR-n1-4ms" id="pIc-H2-GgP"/>
                         <segue destination="RPx-sl-xU0" kind="presentation" identifier="opentotabbar" modalPresentationStyle="fullScreen" id="Ekq-fR-Awx"/>
-                        <segue destination="TQk-TP-hZy" kind="presentation" identifier="opentodrivers" id="ZfS-Ue-vEj"/>
+                        <segue destination="Gqk-dF-1ew" kind="presentation" identifier="opentodrivers" id="h9q-TA-uiI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uB8-QG-E4R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -328,10 +403,14 @@
             <point key="canvasLocation" x="1272" y="541"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="wA7-Wp-UEy"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="Adsız tasarım" width="1080" height="1920"/>
         <image name="bus" catalog="system" width="128" height="122"/>
         <image name="doc.fill" catalog="system" width="115" height="128"/>
+        <image name="map" catalog="system" width="128" height="112"/>
         <image name="mappin.and.ellipse" catalog="system" width="117" height="128"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="rectangle.portrait.and.arrow.right.fill" catalog="system" width="128" height="108"/>

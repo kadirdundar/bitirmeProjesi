@@ -177,7 +177,7 @@ class driversVC: UIViewController {
         print(newList)
         print("222222222222222222222")
         
-        let apiKey = "pk.eyJ1IjoiZHVuZGFya2FkaXIiLCJhIjoiY2xkeWxscWU0MHNnejN4cHJ6dXA2Nzh0bSJ9.FGnJNBYwhbiAP8dr2ELI3A"
+        let apiKey = ""
         
         let baseURL = "https://api.mapbox.com/optimized-trips/v1/mapbox/driving/"
         

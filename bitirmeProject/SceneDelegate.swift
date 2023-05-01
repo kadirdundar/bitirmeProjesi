@@ -21,8 +21,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                     checkEmailExistsInFirestore(email: guncelkullanıcı?.email ?? "") { value in
                         if value{
                             let board = UIStoryboard(name: "Main", bundle: nil)
-                            let routes = board.instantiateViewController(withIdentifier: "routes") 
-                            self.window?.rootViewController = routes
+                            let tabBar = board.instantiateViewController(withIdentifier: "tabBar") as! UITabBarController
+                            self.window?.rootViewController = tabBar
+                            //let routes = board.instantiateViewController(withIdentifier: "routes")
+                            //self.window?.rootViewController = routes
                         }
                         else {
                             let board = UIStoryboard(name: "Main", bundle: nil)

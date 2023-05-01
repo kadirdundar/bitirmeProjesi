@@ -70,12 +70,12 @@ class savedVC: UIViewController {
         let scaledata = ScaleData(data: yenikonum).scaleData(data: yenikonum)
         let k = Int(yenikonum.count/20)
       
-        let clusterer = KMeansClusterer(data: scaledata, k: k, maxElementCount: 20, iterations: 500)
+        let clusterer = KMeansClusterer(data: scaledata, k: k, maxElementCount: 20, tolerance: 10000000)
         let clusters = clusterer.cluster()
         
         let unscaleData = UnscaledData(clusters: clusters, data: yenikonum).unscaleData(clusters: clusters, data: yenikonum)
        
-        
+        print("işelenecek veriler\(unscaleData)")
         let kumeSayisi = unscaleData.count
       
 

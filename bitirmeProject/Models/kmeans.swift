@@ -6,50 +6,44 @@
 //
 
 import Foundation
-struct KMeansClusterer{
+struct KMeansClusterer {
     let data: [[Double]]
     let k: Int
     let maxElementCount: Int
-    let iterations: Int
-    
-    init(data: [[Double]], k: Int, maxElementCount: Int, iterations: Int) {
+    let tolerance: Double // Yeni parametre: küme merkezlerindeki değişimin eşiği
+    init(data: [[Double]], k: Int, maxElementCount: Int, tolerance: Double) {
         self.data = data
         self.k = k
         self.maxElementCount = maxElementCount
-        self.iterations = iterations
+        self.tolerance = tolerance
     }
-    
+
     func cluster() -> [[[Double]]] {
-        // Öncelikle verileri kümelerine ayrılacak şekilde rasgele dağıtıyoruz.
         var clusters = [[[Double]]](repeating: [], count: k)
         for datapoint in data {
             let clusterIndex = Int.random(in: 0..<k)
             clusters[clusterIndex].append(datapoint)
         }
-        
-        // K-means yöntemini uygulayarak kümeleri güncelliyoruz.
-        // Bu işlem, küme merkezlerinin belirlenmesi ve verilerin kümelere
-        // göre dağıtılmasını içerir.
+
+        var previousCentroids = [[Double]](repeating: [Double](repeating: 0.0, count: data[0].count), count: k)
+
         while true {
-            let clusterCentroids = computeClusterCentroids(clusters: clusters)//küme merkezlerini hesapla
-            let updatedClusters = assignDataToClusters(clusters: clusters, centroids: clusterCentroids)//herbir datayı en yakın küme merkezinin olduğu kümeye atıyor
-            
-            // Eğer küme merkezleri ve verilerin dağılımı değişmemişse,
-            // döngüyü sonlandırıyoruz.
-            var hasChanged = false
+            let clusterCentroids = computeClusterCentroids(clusters: clusters)
+            let updatedClusters = assignDataToClusters(clusters: clusters, centroids: clusterCentroids)
+
+            var totalCentroidChange = 0.0
             for i in 0..<k {
-                if clusters[i].count != updatedClusters[i].count {
-                    hasChanged = true
-                    break
-                }
+                totalCentroidChange += computeDistance(datapoint: previousCentroids[i], centroid: clusterCentroids[i])
             }
-            if !hasChanged {
+
+            if totalCentroidChange <= tolerance {
                 break
             }
+
+            previousCentroids = clusterCentroids
             clusters = updatedClusters
         }
-        
-       
+
         return clusters.map { cluster in
             return cluster.map { datapoint in
                 return datapoint
@@ -59,11 +53,9 @@ struct KMeansClusterer{
     
     
     
-    
-    
     // Bu fonksiyon, verilen kümelerin merkezlerini hesaplar.
     func computeClusterCentroids(clusters: [[[Double]]]) -> [[Double]] {
-        var clusterCentroids = [[Double]](repeating: [Double](repeating: 0.0, count: data[0].count), count: k)//Fatal error: Index out of range
+        var clusterCentroids = [[Double]](repeating: [Double](repeating: 0.0, count: data[0].count), count: k)
         
         
         for i in 0..<k {
@@ -139,4 +131,3 @@ struct KMeansClusterer{
         
     }
 }
-
