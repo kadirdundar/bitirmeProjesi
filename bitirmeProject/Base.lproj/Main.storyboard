@@ -137,7 +137,7 @@
         <!--Harita-->
         <scene sceneID="BIn-gv-9Rz">
             <objects>
-                <viewController id="Mxo-Li-2NH" customClass="driversVC" customModule="bitirmeProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Mxo-Li-2NH" customClass="routeVC" customModule="bitirmeProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LOi-rG-qDA">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -166,7 +166,7 @@
                         </imageReference>
                     </tabBarItem>
                     <connections>
-                        <outlet property="mapView" destination="gBK-fh-kLp" id="Ql7-6J-B9V"/>
+                        <outlet property="mapView" destination="gBK-fh-kLp" id="fiO-MZ-Ano"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YAB-Q7-9HH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -195,7 +195,7 @@
         <scene sceneID="Err-PE-2Eg">
             <objects>
                 <viewController id="xKY-lg-yoe" customClass="settingVC" customModule="bitirmeProject" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="5Ec-ZQ-cCV" customClass="settingsVC" customModule="bitirmeProject" customModuleProvider="target">
+                    <view key="view" contentMode="scaleToFill" id="5Ec-ZQ-cCV">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>

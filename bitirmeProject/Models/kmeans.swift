@@ -4,7 +4,6 @@
 //
 //  Created by Kadir Dündar on 5.12.2022.
 //
-
 import Foundation
 struct KMeansClusterer {
     let data: [[Double]]
@@ -51,12 +50,9 @@ struct KMeansClusterer {
         }
     }
     
-    
-    
     // Bu fonksiyon, verilen kümelerin merkezlerini hesaplar.
     func computeClusterCentroids(clusters: [[[Double]]]) -> [[Double]] {
         var clusterCentroids = [[Double]](repeating: [Double](repeating: 0.0, count: data[0].count), count: k)
-        
         
         for i in 0..<k {
             for j in 0..<data[0].count {

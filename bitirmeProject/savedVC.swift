@@ -27,7 +27,7 @@ class savedVC: UIViewController {
         guard let currentUser = FirebaseAuth.Auth.auth().currentUser?.email else { return }
         emailInformationLabel.text = currentUser
         
-        Firestore.firestore().collection("information").whereField("email", isEqualTo: currentUser).getDocuments(completion: { snapshot, error in
+        Firestore.firestore().collection("information2").whereField("email", isEqualTo: currentUser).getDocuments(completion: { snapshot, error in
             if let error = error {
                 print(error.localizedDescription)
                 return
@@ -46,7 +46,7 @@ class savedVC: UIViewController {
     
     func verileriAl() {
         let firestoreDatabase = Firestore.firestore()
-        firestoreDatabase.collection("information").getDocuments { [self] (snapshot, error) in
+        firestoreDatabase.collection("information2").getDocuments { [self] (snapshot, error) in
             if error != nil{
                 print(error?.localizedDescription)
             }
@@ -68,14 +68,14 @@ class savedVC: UIViewController {
     }
     func verileriIsle(){
         let scaledata = ScaleData(data: yenikonum).scaleData(data: yenikonum)
-        let k = Int(yenikonum.count/20)
-      
-        let clusterer = KMeansClusterer(data: scaledata, k: k, maxElementCount: 20, tolerance: 10000000)
+        let k = Int(ceil(Double(yenikonum.count)/20.0))
+        let clusterer = KMeansClusterer(data: scaledata, k: k, maxElementCount: 20, tolerance: 0.08)
         let clusters = clusterer.cluster()
         
         let unscaleData = UnscaledData(clusters: clusters, data: yenikonum).unscaleData(clusters: clusters, data: yenikonum)
+        
        
-        print("işelenecek veriler\(unscaleData)")
+        print("işelenecek veriler\(clusters)")
         let kumeSayisi = unscaleData.count
       
 
@@ -93,7 +93,7 @@ class savedVC: UIViewController {
                     let point = [GeoPoint(latitude: latitude, longitude: longitude)]
                     let geoPoint = point[0]
                     group.enter()
-                    let query = Firestore.firestore().collection("information").whereField("location", isEqualTo: geoPoint)
+                    let query = Firestore.firestore().collection("information2").whereField("location", isEqualTo: geoPoint)
                     query.getDocuments { (snapshot, error) in
                         if let error = error {
                             print("Error getting documents: \(error)")
@@ -118,7 +118,7 @@ class savedVC: UIViewController {
                 let point = [GeoPoint(latitude: latitude, longitude: longitude)]
                 let geoPoint = point[0]
                 
-                let query = Firestore.firestore().collection("information").whereField("location", isEqualTo: geoPoint)
+                let query = Firestore.firestore().collection("information2").whereField("location", isEqualTo: geoPoint)
                 
                 dispatchGroup.enter()
                 query.getDocuments { (snapshot, error) in
@@ -150,7 +150,7 @@ class savedVC: UIViewController {
                         //print(documentID)
                         
                         let updateData = ["arac": arac]
-                        Firestore.firestore().collection("information").document(
+                        Firestore.firestore().collection("information2").document(
                             documentID).updateData(updateData) { (error) in
                                 if let error = error {
                                     print("Error updating document with ID \(documentID): \(error)")
@@ -159,7 +159,6 @@ class savedVC: UIViewController {
                                 }
                                 
                             }
-                       
                     }
                 }
                

@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		124155D81D0D1A722E292624 /* Pods_bitirmeProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE206985D83971C67AC8BFF5 /* Pods_bitirmeProject.framework */; };
+		3F0A72522A1395D4007D85EF /* routeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0A72512A1395D4007D85EF /* routeVC.swift */; };
+		3F0A72542A13D152007D85EF /* serviceForOptimize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0A72532A13D152007D85EF /* serviceForOptimize.swift */; };
+		3F17E24F2A093AC6007334EF /* denemeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F17E24E2A093AC6007334EF /* denemeViewController.swift */; };
 		3F20881B290C37EC0038CB69 /* choosingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F20881A290C37EC0038CB69 /* choosingVC.swift */; };
 		3F20881D290C38170038CB69 /* savedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F20881C290C38170038CB69 /* savedVC.swift */; };
 		3F20881F290C38600038CB69 /* settingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F20881E290C38600038CB69 /* settingVC.swift */; };
@@ -25,6 +28,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3F0A72512A1395D4007D85EF /* routeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = routeVC.swift; sourceTree = "<group>"; };
+		3F0A72532A13D152007D85EF /* serviceForOptimize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = serviceForOptimize.swift; sourceTree = "<group>"; };
+		3F17E24E2A093AC6007334EF /* denemeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = denemeViewController.swift; sourceTree = "<group>"; };
 		3F20881A290C37EC0038CB69 /* choosingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = choosingVC.swift; sourceTree = "<group>"; };
 		3F20881C290C38170038CB69 /* savedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = savedVC.swift; sourceTree = "<group>"; };
 		3F20881E290C38600038CB69 /* settingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settingVC.swift; sourceTree = "<group>"; };
@@ -95,11 +101,14 @@
 		3FC5943A29B3F270005F81E2 /* VC */ = {
 			isa = PBXGroup;
 			children = (
+				3F0A72532A13D152007D85EF /* serviceForOptimize.swift */,
 				3F8442962906B22700B5FEA1 /* ViewController.swift */,
 				3F20881A290C37EC0038CB69 /* choosingVC.swift */,
 				3F20881C290C38170038CB69 /* savedVC.swift */,
 				3F20881E290C38600038CB69 /* settingVC.swift */,
 				3FC5943C29B3F5BA005F81E2 /* driversVC.swift */,
+				3F17E24E2A093AC6007334EF /* denemeViewController.swift */,
+				3F0A72512A1395D4007D85EF /* routeVC.swift */,
 			);
 			name = VC;
 			sourceTree = "<group>";
@@ -249,13 +258,16 @@
 			files = (
 				3FC5943D29B3F5BA005F81E2 /* driversVC.swift in Sources */,
 				3FBC8881293E06D800D3B746 /* kmeans.swift in Sources */,
+				3F0A72542A13D152007D85EF /* serviceForOptimize.swift in Sources */,
 				3F8442972906B22700B5FEA1 /* ViewController.swift in Sources */,
 				3F8442932906B22700B5FEA1 /* AppDelegate.swift in Sources */,
 				3F20881D290C38170038CB69 /* savedVC.swift in Sources */,
 				3F7A57142944BBC900689EB8 /* ScaleData.swift in Sources */,
 				3F20881B290C37EC0038CB69 /* choosingVC.swift in Sources */,
 				3F7A57162944BEDC00689EB8 /* UnscaleData.swift in Sources */,
+				3F0A72522A1395D4007D85EF /* routeVC.swift in Sources */,
 				3F8442952906B22700B5FEA1 /* SceneDelegate.swift in Sources */,
+				3F17E24F2A093AC6007334EF /* denemeViewController.swift in Sources */,
 				3F20881F290C38600038CB69 /* settingVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

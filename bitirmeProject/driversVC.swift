@@ -306,15 +306,15 @@ class driversVC: UIViewController {
     
 
 }
-extension ViewController : MKMapViewDelegate {
-       func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
-           let rendere = MKPolylineRenderer(overlay: overlay)
-           rendere.lineWidth = 5
-           rendere.strokeColor = .systemBlue
-           
-           return rendere
-       }
-   }
+//extension ViewController : MKMapViewDelegate {
+//       func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+//           let rendere = MKPolylineRenderer(overlay: overlay)
+//           rendere.lineWidth = 5
+//           rendere.strokeColor = .systemBlue
+//
+//           return rendere
+//       }
+//   }
 
 extension CLLocationCoordinate2D: Equatable {
     public static func == (lhs: CLLocationCoordinate2D, rhs: CLLocationCoordinate2D) -> Bool {
