@@ -126,36 +126,44 @@ class routeVC: UIViewController {
     func combineEverything(){
         birlestir { dizi in
             let firstLoc = dizi[0]
+            let lastLoc = dizi[dizi.count - 1]
             var newLocs = dizi
             newLocs.removeFirst()
+            newLocs.removeLast()
             print("birlestire girdi")
             //dizinin ilk elemanı silinecek
+            print("diğerkullanıclacak dizi\(dizi)")
             let apiKey = "AkTCd7b62r8A0xBfKJGeIQ6ANO1tjwOy1YKs03OQ6QlyWzj9dDw3SPmCrwPxoD5n"
-            self.getDrivingRoute(from: firstLoc, withWaypoints: newLocs, optimize: "timeWithTraffic", apiKey: apiKey) { lastSeries in
+            self.getDrivingRoute(from: firstLoc,endLoc: lastLoc, withWaypoints: newLocs, optimize: "time", apiKey: apiKey) { lastSeries in
                 print("last Series is 230472836409 \(lastSeries)")
                 self.direction(locations: lastSeries)
             }
         }
-        
-//            let startLocation = "47.610,-122.107"
-//            let waypoints = ["47.6,-122.3", "47.6,-122.1", "47.6,-122.2"]
+//
+//            let startLocation = "41.015285,28.670424"
+//            let waypoints = [ "41.01538,28.66781", "41.015829,28.669886", "41.016642,28.666602", "41.017387,28.666591", "41.01776,28.664359", "41.017897,28.663222", "41.016132,28.66319", "41.017695,28.666398", "41.015647,28.669863", "41.014068,28.669842", "41.015064,28.666172", "41.016051,28.666516"]
+////        , "41.01674,28.664585", "41.017646,28.663823", "41.017832,28.664295", "41.0158,28.665958", "41.016893,28.66231"
+//            let lastLoc = "41.016893,28.66231"
 //            let optimize = "timeWithTraffic"
 //            let apiKey = "AkTCd7b62r8A0xBfKJGeIQ6ANO1tjwOy1YKs03OQ6QlyWzj9dDw3SPmCrwPxoD5n"
 //
-//        getDrivingRoute(from: startLocation, withWaypoints: waypoints, optimize: optimize, apiKey: apiKey) { locationCoordinates in
+//        self.getDrivingRoute(from: startLocation,endLoc: lastLoc, withWaypoints: waypoints, optimize: "time", apiKey: apiKey){ locationCoordinates in
 //            print(locationCoordinates)
-//
+//            self.direction(locations: locationCoordinates)
+
 //        }
     }
-    func getDrivingRoute(from startLocation: String, endLoc : String, withWaypoints waypoints: [String], optimize: String, apiKey: String,completion: @escaping([CLLocationCoordinate2D])->()) {
+    func getDrivingRoute(from startLocation: String, endLoc: String,  withWaypoints waypointss: [String], optimize: String, apiKey: String,completion: @escaping([CLLocationCoordinate2D])->()) {
         
         var urlString = "https://dev.virtualearth.net/REST/v1/Routes/Driving?"
         urlString += "wp.0=\(startLocation)"
         
-        for (index, waypoint) in waypoints.enumerated() {
+        for (index, waypoint) in waypointss.enumerated() {
             urlString += "&wp.\(index+1)=\(waypoint)"
         }
-        let endPoint = "wp.\(waypoints.count + 1)=\(endLoc)"  // burayı düzneliyorum
+        let endPoint = "&wp.\(waypointss.count + 1)=\(endLoc)"  // burayı düzneliyorum
+        urlString += endPoint
+        print("urlstirn son hali222\(urlString)")
         urlString += "&optwp=true&optimize=\(optimize)&key=\(apiKey)"
         
         guard let url = URL(string: urlString) else {
@@ -186,24 +194,32 @@ class routeVC: UIViewController {
                         print("Waypoints Order: \(waypointsOrder)")
                         
                         var newSeries = Array(repeating: [Double](), count: waypointsOrder.count)
-                        for waypoint in waypointsOrder {
-                            if let index = waypoint.split(separator: ".").last, let sayi = Int(index) {
+                        for (index,waypoint) in waypointsOrder.enumerated() {
+                            if let iindex = waypoint.split(separator: ".").last, let sayi = Int(iindex) {
                                 if sayi == 0 {
                                     let coordinates = startLocation.split(separator: ",")
                                     let latitude = Double(coordinates[0])
                                     let longitude = Double(coordinates[1])
                                     let locationArray: [Double] = [latitude ?? 0.0, longitude ?? 0.0]
                                     print("locationnarray\(locationArray)\(sayi)")
-                                    newSeries[sayi] = locationArray
+                                    newSeries[index] = locationArray
+                                }
+                                else if sayi == (waypointss.count + 1){
+                                    let coordinates = endLoc.split(separator: ",")
+                                    let latitude = Double(coordinates[0])
+                                    let longitude = Double(coordinates[1])
+                                    let locationArray: [Double] = [latitude ?? 0.0, longitude ?? 0.0]
+                                    print("locationnarray\(locationArray)\(sayi)")
+                                    newSeries[index] = locationArray
                                 }
                                
                                 else{
-                                    let coordinates = waypoints[sayi - 1].split(separator: ",")
+                                    let coordinates = waypointss[sayi - 1].split(separator: ",")
                                     print("separatorcoridante\(coordinates) \(sayi)")
                                     let latitude = Double(coordinates[0])
                                     let longitude = Double(coordinates[1])
                                     let locationArray: [Double] = [latitude ?? 0.0, longitude ?? 0.0]
-                                    newSeries[sayi] = locationArray
+                                    newSeries[index] = locationArray
                                 }
                             }
                         }
@@ -220,25 +236,27 @@ class routeVC: UIViewController {
     }
 
    
-    func direction(locations: [CLLocationCoordinate2D]){
-        for i in 0..<locations.count-1 {
+    
+    func direction(locations: [CLLocationCoordinate2D]) {
+        mapView.delegate = self // Bu satırı ekleyin
+
+        for i in 0..<locations.count - 1 {
             let sourceLocation = locations[i]
-            let destinationLocation = locations[i+1]
-            
+            let destinationLocation = locations[i + 1]
+
             let sourcePlaceMark = MKPlacemark(coordinate: sourceLocation, addressDictionary: nil)
             let destinationPlaceMark = MKPlacemark(coordinate: destinationLocation, addressDictionary: nil)
-            
+
             let sourceMapItem = MKMapItem(placemark: sourcePlaceMark)
             let destinationItem = MKMapItem(placemark: destinationPlaceMark)
-            
+
             let directionRequest = MKDirections.Request()
             directionRequest.source = sourceMapItem
             directionRequest.destination = destinationItem
             directionRequest.transportType = .automobile
-            
-            
+
             let direction = MKDirections(request: directionRequest)
-            
+
             direction.calculate { (response, error) in
                 guard let response = response else {
                     if let error = error {
@@ -246,10 +264,10 @@ class routeVC: UIViewController {
                     }
                     return
                 }
-                
+
                 let route = response.routes[0]
                 self.mapView.addOverlay(route.polyline, level: MKOverlayLevel.aboveRoads)
-                
+
                 for (index, location) in locations.enumerated() {
                     let annotation = MKPointAnnotation()
                     annotation.coordinate = location
@@ -260,7 +278,8 @@ class routeVC: UIViewController {
             }
         }
     }
-}
+ }
+
 
 
 extension routeVC {
@@ -274,11 +293,34 @@ extension routeVC {
 }
 
 extension routeVC : MKMapViewDelegate {
-       func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
-           let rendere = MKPolylineRenderer(overlay: overlay)
-           rendere.lineWidth = 5
-           rendere.strokeColor = .systemBlue
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        if let polyline = overlay as? MKPolyline {
+            let renderer = MKPolylineRenderer(polyline: polyline)
+            renderer.strokeColor = UIColor.blue
+            renderer.lineWidth = 3
+            return renderer
+        }
+        return MKOverlayRenderer(overlay: overlay)
+    }
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if annotation is MKUserLocation {
+            return nil
+        }
 
-           return rendere
-       }
+        let identifier = "customAnnotationView"
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
+
+        if annotationView == nil {
+            annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+            annotationView?.canShowCallout = true
+        } else {
+            annotationView?.annotation = annotation
+        }
+
+        // Annotation'ların sürekli görünmesini sağlamak için displayPriority özelliğini ayarlayın
+        annotationView?.displayPriority = .required
+
+        return annotationView
+    }
    }
