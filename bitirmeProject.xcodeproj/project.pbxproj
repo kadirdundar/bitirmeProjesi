@@ -10,7 +10,6 @@
 		124155D81D0D1A722E292624 /* Pods_bitirmeProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE206985D83971C67AC8BFF5 /* Pods_bitirmeProject.framework */; };
 		3F0A72522A1395D4007D85EF /* routeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0A72512A1395D4007D85EF /* routeVC.swift */; };
 		3F0A72542A13D152007D85EF /* serviceForOptimize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0A72532A13D152007D85EF /* serviceForOptimize.swift */; };
-		3F17E24F2A093AC6007334EF /* denemeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F17E24E2A093AC6007334EF /* denemeViewController.swift */; };
 		3F20881B290C37EC0038CB69 /* choosingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F20881A290C37EC0038CB69 /* choosingVC.swift */; };
 		3F20881D290C38170038CB69 /* savedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F20881C290C38170038CB69 /* savedVC.swift */; };
 		3F20881F290C38600038CB69 /* settingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F20881E290C38600038CB69 /* settingVC.swift */; };
@@ -22,15 +21,14 @@
 		3F84429A2906B22700B5FEA1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F8442982906B22700B5FEA1 /* Main.storyboard */; };
 		3F84429C2906B22700B5FEA1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F84429B2906B22700B5FEA1 /* Assets.xcassets */; };
 		3F84429F2906B22700B5FEA1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F84429D2906B22700B5FEA1 /* LaunchScreen.storyboard */; };
+		3FB3342F2A1A73B300E865AE /* extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB3342E2A1A73B300E865AE /* extension.swift */; };
 		3FBC8881293E06D800D3B746 /* kmeans.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBC8880293E06D800D3B746 /* kmeans.swift */; };
-		3FC5943D29B3F5BA005F81E2 /* driversVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC5943C29B3F5BA005F81E2 /* driversVC.swift */; };
 		3FF9C1BC2938F676001B0F1B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3FF9C1BB2938F676001B0F1B /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3F0A72512A1395D4007D85EF /* routeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = routeVC.swift; sourceTree = "<group>"; };
 		3F0A72532A13D152007D85EF /* serviceForOptimize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = serviceForOptimize.swift; sourceTree = "<group>"; };
-		3F17E24E2A093AC6007334EF /* denemeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = denemeViewController.swift; sourceTree = "<group>"; };
 		3F20881A290C37EC0038CB69 /* choosingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = choosingVC.swift; sourceTree = "<group>"; };
 		3F20881C290C38170038CB69 /* savedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = savedVC.swift; sourceTree = "<group>"; };
 		3F20881E290C38600038CB69 /* settingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settingVC.swift; sourceTree = "<group>"; };
@@ -44,8 +42,8 @@
 		3F84429B2906B22700B5FEA1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3F84429E2906B22700B5FEA1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3F8442A02906B22700B5FEA1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3FB3342E2A1A73B300E865AE /* extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extension.swift; sourceTree = "<group>"; };
 		3FBC8880293E06D800D3B746 /* kmeans.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kmeans.swift; sourceTree = "<group>"; };
-		3FC5943C29B3F5BA005F81E2 /* driversVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = driversVC.swift; sourceTree = "<group>"; };
 		3FF9C1BB2938F676001B0F1B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C8F2B9027A0664E5194C69E2 /* Pods-bitirmeProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bitirmeProject.debug.xcconfig"; path = "Target Support Files/Pods-bitirmeProject/Pods-bitirmeProject.debug.xcconfig"; sourceTree = "<group>"; };
 		CE6EC757CD85B70122B8D17C /* Pods-bitirmeProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bitirmeProject.release.xcconfig"; path = "Target Support Files/Pods-bitirmeProject/Pods-bitirmeProject.release.xcconfig"; sourceTree = "<group>"; };
@@ -87,40 +85,63 @@
 			children = (
 				3F8442922906B22700B5FEA1 /* AppDelegate.swift */,
 				3F8442942906B22700B5FEA1 /* SceneDelegate.swift */,
-				3F8442982906B22700B5FEA1 /* Main.storyboard */,
-				3FC5943A29B3F270005F81E2 /* VC */,
-				3FC5943B29B3F29B005F81E2 /* Models */,
+				3FB3342D2A1A70D800E865AE /* settingsPage */,
+				3FB3342C2A1A709600E865AE /* driversPage */,
+				3FB3342B2A1A702100E865AE /* choosingPage */,
+				3FB3342A2A1A700800E865AE /* loginPage */,
+				3FB334292A1A6FFC00E865AE /* saved */,
 				3F84429B2906B22700B5FEA1 /* Assets.xcassets */,
 				3F84429D2906B22700B5FEA1 /* LaunchScreen.storyboard */,
+				3F8442982906B22700B5FEA1 /* Main.storyboard */,
 				3F8442A02906B22700B5FEA1 /* Info.plist */,
 				3FF9C1BB2938F676001B0F1B /* GoogleService-Info.plist */,
 			);
 			path = bitirmeProject;
 			sourceTree = "<group>";
 		};
-		3FC5943A29B3F270005F81E2 /* VC */ = {
+		3FB334292A1A6FFC00E865AE /* saved */ = {
 			isa = PBXGroup;
 			children = (
-				3F0A72532A13D152007D85EF /* serviceForOptimize.swift */,
-				3F8442962906B22700B5FEA1 /* ViewController.swift */,
-				3F20881A290C37EC0038CB69 /* choosingVC.swift */,
 				3F20881C290C38170038CB69 /* savedVC.swift */,
-				3F20881E290C38600038CB69 /* settingVC.swift */,
-				3FC5943C29B3F5BA005F81E2 /* driversVC.swift */,
-				3F17E24E2A093AC6007334EF /* denemeViewController.swift */,
-				3F0A72512A1395D4007D85EF /* routeVC.swift */,
-			);
-			name = VC;
-			sourceTree = "<group>";
-		};
-		3FC5943B29B3F29B005F81E2 /* Models */ = {
-			isa = PBXGroup;
-			children = (
 				3FBC8880293E06D800D3B746 /* kmeans.swift */,
 				3F7A57152944BEDC00689EB8 /* UnscaleData.swift */,
 				3F7A57132944BBC900689EB8 /* ScaleData.swift */,
 			);
-			path = Models;
+			path = saved;
+			sourceTree = "<group>";
+		};
+		3FB3342A2A1A700800E865AE /* loginPage */ = {
+			isa = PBXGroup;
+			children = (
+				3F8442962906B22700B5FEA1 /* ViewController.swift */,
+			);
+			path = loginPage;
+			sourceTree = "<group>";
+		};
+		3FB3342B2A1A702100E865AE /* choosingPage */ = {
+			isa = PBXGroup;
+			children = (
+				3F20881A290C37EC0038CB69 /* choosingVC.swift */,
+			);
+			path = choosingPage;
+			sourceTree = "<group>";
+		};
+		3FB3342C2A1A709600E865AE /* driversPage */ = {
+			isa = PBXGroup;
+			children = (
+				3F0A72532A13D152007D85EF /* serviceForOptimize.swift */,
+				3F0A72512A1395D4007D85EF /* routeVC.swift */,
+				3FB3342E2A1A73B300E865AE /* extension.swift */,
+			);
+			path = driversPage;
+			sourceTree = "<group>";
+		};
+		3FB3342D2A1A70D800E865AE /* settingsPage */ = {
+			isa = PBXGroup;
+			children = (
+				3F20881E290C38600038CB69 /* settingVC.swift */,
+			);
+			path = settingsPage;
 			sourceTree = "<group>";
 		};
 		5B2AF7C7CFC42BBAB61A4B5B /* Frameworks */ = {
@@ -256,7 +277,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3FC5943D29B3F5BA005F81E2 /* driversVC.swift in Sources */,
+				3FB3342F2A1A73B300E865AE /* extension.swift in Sources */,
 				3FBC8881293E06D800D3B746 /* kmeans.swift in Sources */,
 				3F0A72542A13D152007D85EF /* serviceForOptimize.swift in Sources */,
 				3F8442972906B22700B5FEA1 /* ViewController.swift in Sources */,
@@ -267,7 +288,6 @@
 				3F7A57162944BEDC00689EB8 /* UnscaleData.swift in Sources */,
 				3F0A72522A1395D4007D85EF /* routeVC.swift in Sources */,
 				3F8442952906B22700B5FEA1 /* SceneDelegate.swift in Sources */,
-				3F17E24F2A093AC6007334EF /* denemeViewController.swift in Sources */,
 				3F20881F290C38600038CB69 /* settingVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

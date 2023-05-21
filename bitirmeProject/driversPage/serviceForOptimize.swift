@@ -8,15 +8,17 @@
 import Foundation
 import CoreLocation
 
-func getDrivingRoute(from startLocation: String,  withWaypoints waypoints: [String], optimize: String, apiKey: String,completion: @escaping([CLLocationCoordinate2D])->()) {
+func getDrivingRoute(from startLocation: String, endLoc: String,  withWaypoints waypointss: [String], optimize: String, apiKey: String,completion: @escaping([CLLocationCoordinate2D])->()) {
     
     var urlString = "https://dev.virtualearth.net/REST/v1/Routes/Driving?"
     urlString += "wp.0=\(startLocation)"
     
-    for (index, waypoint) in waypoints.enumerated() {
+    for (index, waypoint) in waypointss.enumerated() {
         urlString += "&wp.\(index+1)=\(waypoint)"
     }
-    
+    let endPoint = "&wp.\(waypointss.count + 1)=\(endLoc)"  // burayı düzneliyorum
+    urlString += endPoint
+    print("urlstirn son hali222\(urlString)")
     urlString += "&optwp=true&optimize=\(optimize)&key=\(apiKey)"
     
     guard let url = URL(string: urlString) else {
@@ -46,25 +48,33 @@ func getDrivingRoute(from startLocation: String,  withWaypoints waypoints: [Stri
                     print("Travel Duration with Traffic: \(travelDurationTraffic)")
                     print("Waypoints Order: \(waypointsOrder)")
                     
-                    var newSeries = [[Double]]()
-                    for waypoint in waypointsOrder {
-                        if let index = waypoint.split(separator: ".").last, let sayi = Int(index) {
+                    var newSeries = Array(repeating: [Double](), count: waypointsOrder.count)
+                    for (index,waypoint) in waypointsOrder.enumerated() {
+                        if let iindex = waypoint.split(separator: ".").last, let sayi = Int(iindex) {
                             if sayi == 0 {
                                 let coordinates = startLocation.split(separator: ",")
                                 let latitude = Double(coordinates[0])
                                 let longitude = Double(coordinates[1])
                                 let locationArray: [Double] = [latitude ?? 0.0, longitude ?? 0.0]
-                                print("locationnarray\(locationArray)")
-                                newSeries.insert(locationArray, at: 0)
+                                print("locationnarray\(locationArray)\(sayi)")
+                                newSeries[index] = locationArray
                             }
-                           
-                            else{
-                                let coordinates = waypoints[sayi - 1].split(separator: ",")
-                                print("separatorcoridante\(coordinates)")
+                            else if sayi == (waypointss.count + 1){
+                                let coordinates = endLoc.split(separator: ",")
                                 let latitude = Double(coordinates[0])
                                 let longitude = Double(coordinates[1])
                                 let locationArray: [Double] = [latitude ?? 0.0, longitude ?? 0.0]
-                                newSeries.insert(locationArray, at: sayi)
+                                print("locationnarray\(locationArray)\(sayi)")
+                                newSeries[index] = locationArray
+                            }
+                           
+                            else{
+                                let coordinates = waypointss[sayi - 1].split(separator: ",")
+                                print("separatorcoridante\(coordinates) \(sayi)")
+                                let latitude = Double(coordinates[0])
+                                let longitude = Double(coordinates[1])
+                                let locationArray: [Double] = [latitude ?? 0.0, longitude ?? 0.0]
+                                newSeries[index] = locationArray
                             }
                         }
                     }
