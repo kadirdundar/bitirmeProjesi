@@ -18,7 +18,7 @@ extension routeVC {
 }
 
 extension routeVC : MKMapViewDelegate {
-    func direction(locations: [CLLocationCoordinate2D]) {
+    func direction(locations: [CLLocationCoordinate2D]) { //Rotanın haritada gösterilmesi
         mapView.delegate = self // Bu satırı ekleyin
 
         for i in 0..<locations.count - 1 {
@@ -54,6 +54,7 @@ extension routeVC : MKMapViewDelegate {
                     annotation.coordinate = location
                     annotation.title = "Durak \(index + 1)"
                     annotation.subtitle = "\(location)"
+                    
                     self.mapView.addAnnotation(annotation)
                 }
             }
@@ -76,18 +77,35 @@ extension routeVC : MKMapViewDelegate {
         }
 
         let identifier = "customAnnotationView"
-        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MKMarkerAnnotationView
 
         if annotationView == nil {
-            annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-            annotationView?.canShowCallout = true
+            annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+            annotationView?.canShowCallout = true 
+            let button = UIButton(type: .detailDisclosure)
+            annotationView?.rightCalloutAccessoryView = button
         } else {
             annotationView?.annotation = annotation
         }
 
-        // Annotation'ların sürekli görünmesini sağlamak için displayPriority özelliğini ayarlayın
+        // Annotation'ların sürekli görünmesini sağlamak için displayPriority özelliği
         annotationView?.displayPriority = .required
+
+        // Başlığı her zaman göster
+        annotationView?.titleVisibility = .visible
+     
 
         return annotationView
     }
+
+
+        // Buton tıklandığında
+        func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+            guard let annotation = view.annotation else { return }
+            let coordinate = annotation.coordinate
+            let placemark = MKPlacemark(coordinate: coordinate)
+            let mapItem = MKMapItem(placemark: placemark)
+            mapItem.name = annotation.title ?? "Durak"
+            mapItem.openInMaps(launchOptions: [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving])
+        }
    }
