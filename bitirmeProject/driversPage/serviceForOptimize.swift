@@ -37,16 +37,14 @@ func getDrivingRoute(from startLocation: String, endLoc: String,  withWaypoints 
                 let decoder = JSONDecoder()
                 let response = try decoder.decode(RouteResponse.self, from: data)
                 
-                if let resource = response.resourceSets.first?.resources.first {
+                if let resource = response.resourceSets.first?.resources.first { //gerekli bilgiler dönüşütürülüyor
                     let travelDistance = resource.travelDistance
                     let travelDuration = resource.travelDuration
                     let travelDurationTraffic = resource.travelDurationTraffic
                     let waypointsOrder = resource.waypointsOrder
                     
-                    print("Travel Distance: \(travelDistance)")
-                    print("Travel Duration: \(travelDuration)")
-                    print("Travel Duration with Traffic: \(travelDurationTraffic)")
-                    print("Waypoints Order: \(waypointsOrder)")
+                    
+                    fetchData(data: [String(travelDistance), String(travelDuration), String(travelDurationTraffic)])
                     
                     var newSeries = Array(repeating: [Double](), count: waypointsOrder.count)
                     for (index,waypoint) in waypointsOrder.enumerated() {
@@ -89,21 +87,16 @@ func getDrivingRoute(from startLocation: String, endLoc: String,  withWaypoints 
     }
     task.resume()
 }
-
-
-
-
-struct RouteResponse: Codable {
-    let resourceSets: [ReesourceSet]
+func fetchData(data: [String]) {
+      DataStore.shared.data = data
 }
 
-struct ReesourceSet: Codable {
-    let resources: [CustomResource]
+
+class DataStore {
+    static let shared = DataStore()
+    var data: [String]?
+
+    private init() {}
 }
 
-struct CustomResource: Codable {
-    let travelDistance: Double
-    let travelDuration: Int
-    let travelDurationTraffic: Int
-    let waypointsOrder: [String]
-}
+

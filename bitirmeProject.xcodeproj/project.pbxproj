@@ -13,6 +13,9 @@
 		3F20881B290C37EC0038CB69 /* choosingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F20881A290C37EC0038CB69 /* choosingVC.swift */; };
 		3F20881D290C38170038CB69 /* savedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F20881C290C38170038CB69 /* savedVC.swift */; };
 		3F20881F290C38600038CB69 /* settingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F20881E290C38600038CB69 /* settingVC.swift */; };
+		3F4A90E52A1E190100425229 /* TravelInformationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4A90E42A1E190100425229 /* TravelInformationVC.swift */; };
+		3F4A90E72A1E1AFA00425229 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4A90E62A1E1AFA00425229 /* DataModel.swift */; };
+		3F708AEB2A23F67D0040A541 /* APIKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3F708AEA2A23F67D0040A541 /* APIKeys.plist */; };
 		3F7A57142944BBC900689EB8 /* ScaleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7A57132944BBC900689EB8 /* ScaleData.swift */; };
 		3F7A57162944BEDC00689EB8 /* UnscaleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7A57152944BEDC00689EB8 /* UnscaleData.swift */; };
 		3F8442932906B22700B5FEA1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8442922906B22700B5FEA1 /* AppDelegate.swift */; };
@@ -32,6 +35,9 @@
 		3F20881A290C37EC0038CB69 /* choosingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = choosingVC.swift; sourceTree = "<group>"; };
 		3F20881C290C38170038CB69 /* savedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = savedVC.swift; sourceTree = "<group>"; };
 		3F20881E290C38600038CB69 /* settingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settingVC.swift; sourceTree = "<group>"; };
+		3F4A90E42A1E190100425229 /* TravelInformationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelInformationVC.swift; sourceTree = "<group>"; };
+		3F4A90E62A1E1AFA00425229 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		3F708AEA2A23F67D0040A541 /* APIKeys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = APIKeys.plist; sourceTree = "<group>"; };
 		3F7A57132944BBC900689EB8 /* ScaleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleData.swift; sourceTree = "<group>"; };
 		3F7A57152944BEDC00689EB8 /* UnscaleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnscaleData.swift; sourceTree = "<group>"; };
 		3F84428F2906B22700B5FEA1 /* bitirmeProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bitirmeProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -62,6 +68,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3F4A90E32A1E18C400425229 /* TravelInformationPage */ = {
+			isa = PBXGroup;
+			children = (
+				3F4A90E42A1E190100425229 /* TravelInformationVC.swift */,
+			);
+			path = TravelInformationPage;
+			sourceTree = "<group>";
+		};
 		3F8442862906B22700B5FEA1 = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +99,7 @@
 			children = (
 				3F8442922906B22700B5FEA1 /* AppDelegate.swift */,
 				3F8442942906B22700B5FEA1 /* SceneDelegate.swift */,
+				3F4A90E32A1E18C400425229 /* TravelInformationPage */,
 				3FB3342D2A1A70D800E865AE /* settingsPage */,
 				3FB3342C2A1A709600E865AE /* driversPage */,
 				3FB3342B2A1A702100E865AE /* choosingPage */,
@@ -95,6 +110,7 @@
 				3F8442982906B22700B5FEA1 /* Main.storyboard */,
 				3F8442A02906B22700B5FEA1 /* Info.plist */,
 				3FF9C1BB2938F676001B0F1B /* GoogleService-Info.plist */,
+				3F708AEA2A23F67D0040A541 /* APIKeys.plist */,
 			);
 			path = bitirmeProject;
 			sourceTree = "<group>";
@@ -132,6 +148,7 @@
 				3F0A72532A13D152007D85EF /* serviceForOptimize.swift */,
 				3F0A72512A1395D4007D85EF /* routeVC.swift */,
 				3FB3342E2A1A73B300E865AE /* extension.swift */,
+				3F4A90E62A1E1AFA00425229 /* DataModel.swift */,
 			);
 			path = driversPage;
 			sourceTree = "<group>";
@@ -222,6 +239,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F84429F2906B22700B5FEA1 /* LaunchScreen.storyboard in Resources */,
+				3F708AEB2A23F67D0040A541 /* APIKeys.plist in Resources */,
 				3FF9C1BC2938F676001B0F1B /* GoogleService-Info.plist in Resources */,
 				3F84429C2906B22700B5FEA1 /* Assets.xcassets in Resources */,
 				3F84429A2906B22700B5FEA1 /* Main.storyboard in Resources */,
@@ -280,9 +298,11 @@
 				3FB3342F2A1A73B300E865AE /* extension.swift in Sources */,
 				3FBC8881293E06D800D3B746 /* kmeans.swift in Sources */,
 				3F0A72542A13D152007D85EF /* serviceForOptimize.swift in Sources */,
+				3F4A90E52A1E190100425229 /* TravelInformationVC.swift in Sources */,
 				3F8442972906B22700B5FEA1 /* ViewController.swift in Sources */,
 				3F8442932906B22700B5FEA1 /* AppDelegate.swift in Sources */,
 				3F20881D290C38170038CB69 /* savedVC.swift in Sources */,
+				3F4A90E72A1E1AFA00425229 /* DataModel.swift in Sources */,
 				3F7A57142944BBC900689EB8 /* ScaleData.swift in Sources */,
 				3F20881B290C37EC0038CB69 /* choosingVC.swift in Sources */,
 				3F7A57162944BEDC00689EB8 /* UnscaleData.swift in Sources */,

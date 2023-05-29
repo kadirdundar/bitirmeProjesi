@@ -10,9 +10,13 @@ import FirebaseAuth
 import FirebaseFirestore
 import MapKit
 
+protocol DataTransferDelegate: AnyObject {
+    func sendData(data: String)
+}
+
 class routeVC: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
-    
+      
     override func viewDidLoad() {
         super.viewDidLoad()
         combineEverything()
@@ -148,6 +152,13 @@ class routeVC: UIViewController {
             completion(stringCoordinates)
         }
     }
+    func getAPIKey() -> String? {
+        if let path = Bundle.main.path(forResource: "APIKeys", ofType: "plist"),
+           let dict = NSDictionary(contentsOfFile: path) as? [String: AnyObject] {
+            return dict["MyAPIKey"] as? String
+        }
+        return nil
+    }
     func combineEverything(){
         birlestir { dizi in
             
@@ -159,16 +170,20 @@ class routeVC: UIViewController {
             print("birlestire girdi")
             //dizinin ilk elemanı silinecek
             print("diğerkullanıclacak dizi\(dizi)")
-            let apiKey = "AkTCd7b62r8A0xBfKJGeIQ6ANO1tjwOy1YKs03OQ6QlyWzj9dDw3SPmCrwPxoD5n"
+
+        
+            var apiKey = String()
+            if let apiiKey = self.getAPIKey() {
+                apiKey = apiiKey
+            }
             getDrivingRoute(from: firstLoc,endLoc: lastLoc, withWaypoints: newLocs, optimize: "time", apiKey: apiKey) { lastSeries in
                 print("last Series is 230472836409 \(lastSeries)")
                 self.direction(locations: lastSeries)
+                
             }
         }
     }
  }
-
-
 
 extension CLLocationCoordinate2D: Equatable {
     public static func ==(lhs: CLLocationCoordinate2D, rhs: CLLocationCoordinate2D) -> Bool {

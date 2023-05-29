@@ -52,7 +52,6 @@ class choosingVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate
         } else {
             annotationView?.annotation = annotation
         }
-        
         return annotationView
     }
     
@@ -60,7 +59,7 @@ class choosingVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate
         let firestore = Firestore.firestore()
         guard let annatation = view.annotation else {return}
         let data = ["email": FirebaseAuth.Auth.auth().currentUser?.email,"arac":1,"location":GeoPoint(latitude: annatation.coordinate.latitude, longitude: annatation.coordinate.longitude)] as [String : Any]
-        firestore.collection("information").whereField("email", isEqualTo: FirebaseAuth.Auth.auth().currentUser?.email).getDocuments { querySnapshot, error in
+        firestore.collection("information2").whereField("email", isEqualTo: FirebaseAuth.Auth.auth().currentUser?.email).getDocuments { querySnapshot, error in
             if let error = error {
                         print("Hata oluştu: \(error.localizedDescription)")
                     } else if !querySnapshot!.documents.isEmpty {
@@ -71,7 +70,7 @@ class choosingVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate
                         let updateAction = UIAlertAction(title: "Güncelle", style: .destructive) { action in
                                         // Firestore veritabanından veriyi silme
                             let documentID = querySnapshot!.documents.first!.documentID
-                                       firestore.collection("information").document(documentID).setData(data) { error in
+                                       firestore.collection("information2").document(documentID).setData(data) { error in
                                            if let error = error {
                                                print("Veri güncellenirken hata oluştu: \(error.localizedDescription)")
                                            } else {
@@ -84,14 +83,13 @@ class choosingVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate
                         alert.addAction(updateAction)
                         self.present(alert, animated: true, completion: nil)
                     }
-            else{  firestore.collection("information").addDocument(data: data){error in
+            else{  firestore.collection("information2").addDocument(data: data){error in
                 if error != nil{
                     print("veri yüklenirken hata oluştu")}
                 else{print("veri aktarımı başarılı")}
             }
         }
     }
-      
         //seçilen konumu firebase'e gönder
         //geopopint olarak Basarili
         print("tıklandı")

@@ -6,3 +6,18 @@
 //
 
 import Foundation
+
+struct RouteResponse: Codable {
+    let resourceSets: [ReesourceSet]
+}
+
+struct ReesourceSet: Codable {
+    let resources: [CustomResource]
+}
+
+struct CustomResource: Codable {
+    let travelDistance: Double
+    let travelDuration: Int
+    let travelDurationTraffic: Int
+    let waypointsOrder: [String]
+}
